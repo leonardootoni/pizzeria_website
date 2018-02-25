@@ -15,17 +15,19 @@ body{
 header {
     grid-area: header;
     display: grid;
-    grid-template-columns: 1fr 11fr;
+    grid-template-columns: 2fr 20fr;
 }
 
 nav {
     grid-area: nav;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 main {
     grid-area: main;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 footer {
