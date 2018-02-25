@@ -1,0 +1,21 @@
+body {
+    background-image: linear-gradient(to bottom, white 0%, green 99%);
+    background-repeat: no-repeat;
+    padding-top: 40px;
+    padding-bottom: 90px;
+}
+
+header{
+    background-color: blue;
+    color:inherit;
+}
+
+main {
+    background: white;
+    color:inherit;
+}
+
+footer{
+    background-color: gray;
+    color:inherit;
+}
