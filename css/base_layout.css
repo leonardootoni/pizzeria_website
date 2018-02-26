@@ -13,34 +13,37 @@
     font-family: Helvetica, Arial, sans-serif;
 }
 
-body{
-    display: grid;
-    grid-template-areas:    "header"
-                            "nav"
-                            "main"
-                            "footer";
-
-    /*Center the website*/
-    max-width: 1200px;
-    margin: auto;
+html{
+    /*forces the vertical scroll bar to appear ever*/
+    overflow-y: scroll;
 }
 
+body{
+    display: grid;
+    grid-template-areas:"header"
+                        "nav"
+                        "main"
+                        "footer";
+    /*Center the website*/
+    max-width: 1300px;
+    grid-row-gap: 8px;
+
+}
 header {
     grid-area: header;
     display: grid;
-    grid-template-columns: 2fr 20fr;
+    grid-template-columns: 2fr 10fr 2fr;
 }
 
 nav {
     grid-area: nav;
-    margin-top: 8px;
-    margin-bottom: 8px;
 }
 
 main {
     grid-area: main;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 6px 6px;
 }
 
 footer {
@@ -48,23 +51,25 @@ footer {
 }
 /******************************************************************************/
 
-
 /* Style definition for the basic page components: Body, nav, header and footer*/
 body {
     background-image: linear-gradient(to bottom, white 0%, #E0D4D6 65%);
     background-repeat: no-repeat;
-    padding-top: 40px;
-    padding-bottom: 90px;
+
+    margin-top: 1%;
+    margin-bottom: 3%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 header{
-    background-image: linear-gradient(to bottom, #6CBF30 20%, #2D9810 50%);
+    background: linear-gradient(to right, #5BAB3A, #2D9810);
+    align-content: center;
     border-radius: 5px;
     min-height: 80px;
 }
 
 nav{
-    text-align: center;
     background: transparent;
     color:inherit;
     border-radius: 5px;
@@ -77,22 +82,35 @@ main {
 }
 
 footer{
-    margin-top: 4px;
-    background-image: linear-gradient(to bottom, #6CBF30 20%, #2D9810 50%);
+    background: linear-gradient(to right, #5BAB3A, #2D9810);
     border-radius: 5px;
     min-height: 80px;
-    padding: 8px;
 }
 /******************************************************************************/
 
 /*Helper classes for specialized purposes*/
 
-/*Format all divs used dor contents*/
+/*CSS to merge content columns*/
+/* It uses all three columns*/
+.all-columns {
+    grid-column: 1/4;
+}
+
+/* It uses two columns of three, starting from the left*/
+.two-columns-left {
+    grid-column: 1/3;
+}
+
+/* It uses two columns of three, starting from the right*/
+.two-columns-right {
+    grid-column: 2/4;
+}
+
+/*Define style for contents divs*/
 .content{
     min-height: 80px;
     background-color: #FAF0F1;
     color: inherit;
-    margin: 4px;
     border-radius: 8px;
     padding: 8px;
 }
@@ -100,6 +118,8 @@ footer{
 /*Remove all styles of ul and li elements under the main-menu class*/
 ul.main-menu{
     padding: 0;
+    text-align: center;
+    margin: 0;
 }
 
 ul.main-menu > li {
@@ -118,19 +138,26 @@ ul.main-menu > li {
     cursor: pointer;
     white-space: nowrap;
     color: #fff;
-    background-color: #4CAF50;
+    background-color: #5BAB3A;
     border: 1px solid #ccc;
     border-radius: 8px;
-
+    font-weight: bold;
 }
 
 .menu-button:hover{
     box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #FC0300;
+    color: white;
+    font-weight: bold;
 }
 
-/* Put an image in the centre of a content */
-.centre-img {
-    position:relative;
-    display:inline-block;
-    text-align:center;
+.sub-menu{
+    grid-column: 1/4;
+    background: linear-gradient(to right, #FF3333, #D00000);
+    background-color: inherit;
+    color: white;
+    font-weight: bold;
+    min-height: auto;
+    text-align: center;
+
 }
