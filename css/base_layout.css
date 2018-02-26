@@ -1,4 +1,18 @@
-/*Base GRID layout*/
+/*
+    Base css stylesheet file
+    It defines the base style of all generic page components like header, footer
+    generic body, menu and font.
+
+    This is the base css for all site. Each page can override this properties in
+    another css file, importing it "after" base_layout.css in the html file.
+
+*/
+
+/*Base GRID layout definition*/
+* {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
 body{
     display: grid;
     grid-template-areas:    "header"
@@ -9,7 +23,6 @@ body{
     /*Center the website*/
     max-width: 1200px;
     margin: auto;
-
 }
 
 header {
@@ -33,4 +46,91 @@ main {
 footer {
     grid-area: footer;
 }
-/*End -- GRID CSS base layout config*/
+/******************************************************************************/
+
+
+/* Style definition for the basic page components: Body, nav, header and footer*/
+body {
+    background-image: linear-gradient(to bottom, white 0%, #E0D4D6 65%);
+    background-repeat: no-repeat;
+    padding-top: 40px;
+    padding-bottom: 90px;
+}
+
+header{
+    background-image: linear-gradient(to bottom, #6CBF30 20%, #2D9810 50%);
+    border-radius: 5px;
+    min-height: 80px;
+}
+
+nav{
+    text-align: center;
+    background: transparent;
+    color:inherit;
+    border-radius: 5px;
+}
+
+main {
+    background: transparent;
+    color:inherit;
+    border-radius: 5px;
+}
+
+footer{
+    margin-top: 4px;
+    background-image: linear-gradient(to bottom, #6CBF30 20%, #2D9810 50%);
+    border-radius: 5px;
+    min-height: 80px;
+    padding: 8px;
+}
+/******************************************************************************/
+
+/*Helper classes for specialized purposes*/
+
+/*Format all divs used dor contents*/
+.content{
+    min-height: 80px;
+    background-color: #FAF0F1;
+    color: inherit;
+    margin: 4px;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+/*Remove all styles of ul and li elements under the main-menu class*/
+ul.main-menu{
+    padding: 0;
+}
+
+ul.main-menu > li {
+    list-style-type: none;
+    display: inline;
+}
+
+/*Define the main menu buttons style*/
+.menu-button {
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    color: #fff;
+    background-color: #4CAF50;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+}
+
+.menu-button:hover{
+    box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/* Put an image in the centre of a content */
+.centre-img {
+    position:relative;
+    display:inline-block;
+    text-align:center;
+}

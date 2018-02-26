@@ -1,0 +1,17 @@
+/*Specifc css for the page index.html (main website page) */
+
+/* It uses all three columns*/
+.one-column {
+    grid-column: 1/4;
+    text-align: center;
+}
+
+/* It uses two columns of three, starting from the left*/
+.two-columns-left {
+    grid-column: 1/3;
+}
+
+/* It uses two columns of three, starting from the right*/
+.two-columns-right {
+    grid-column: 2/4;
+}
