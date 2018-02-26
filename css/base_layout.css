@@ -67,6 +67,8 @@ header{
     align-content: center;
     border-radius: 5px;
     min-height: 80px;
+    color: white;
+    background-color: inherit;
 }
 
 nav{
@@ -83,8 +85,11 @@ main {
 
 footer{
     background: linear-gradient(to right, #5BAB3A, #2D9810);
+    color: white;
+    background-color: inherit;
     border-radius: 5px;
     min-height: 80px;
+
 }
 /******************************************************************************/
 
@@ -146,14 +151,14 @@ ul.main-menu > li {
 
 .menu-button:hover{
     box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    background-color: #FC0300;
+    background-color: #e73827;
     color: white;
     font-weight: bold;
 }
 
 .sub-menu{
     grid-column: 1/4;
-    background: linear-gradient(to right, #FF3333, #D00000);
+    background: linear-gradient(to right, #f85032, #e73827);
     background-color: inherit;
     color: white;
     font-weight: bold;
