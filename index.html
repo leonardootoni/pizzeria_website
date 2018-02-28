@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DEFINE A PROJECT'S NAME</title>
+    <title>Pizzeria</title>
     <!--Main css file for all website -->
     <link rel="stylesheet" href="css/base_layout.css" type="text/css">
 
@@ -14,47 +14,52 @@
 <body>
     <!-- the header and nav sections needs to repeat in each website's page -->
     <header>
-        <div  class="centre-img">
+        <div class="centre-content">
             <a href="index.html">
-                <img src="images/logo.png" alt="Site's logotype" height="120" width="120">
+                <img  class="centre-img" src="images/logo.png" alt="Site's logotype" height="120" width="120">
             </a>
         </div>
         <div><h1>This is a Test Header</h1></div>
-        <div  class="centre-img">
+        <div class="centre-content">
             <img src="images/italy-flag.png" alt="Italy Flag" height="120" width="120">
         </div>
     </header>
     <nav>
         <ul class="main-menu">
-            <li><a href="pages/menu.html" class="menu-button">Menu</a></li>
-            <li><a href="#" class="menu-button">Promo</a></li>
-            <li><a href="#" class="menu-button">Mount your Pizza</a></li>
-            <li><a href="#" class="menu-button">Order Track</a></li>
-            <li><a href="#" class="menu-button">Nutritional Guide</a></li>
-            <li><a href="#" class="menu-button">Email Offers</a></li>
-            <li><a href="#" class="menu-button">Locations</a></li>
-            <li><a href="#" class="menu-button">Carreers</a></li>
-            <li><a href="#" class="menu-button">Services</a></li>
-            <li><a href="#" class="menu-button">About Us</a></li>
+            <li tabindex="1"><a href="pages/menu.html" class="menu-button">Menu</a></li>
+            <li tabindex="2"><a href="#" class="menu-button">Promo</a></li>
+            <li tabindex="3"><a href="#" class="menu-button">Mount your Pizza</a></li>
+            <li tabindex="4"><a href="#" class="menu-button">Order Track</a></li>
+            <li tabindex="5"><a href="#" class="menu-button">Nutritional Guide</a></li>
+            <li tabindex="6"><a href="#" class="menu-button">Email Offers</a></li>
+            <li tabindex="7"><a href="#" class="menu-button">Locations</a></li>
+            <li tabindex="8"><a href="#" class="menu-button">Carreers</a></li>
+            <li tabindex="9"><a href="#" class="menu-button">Services</a></li>
+            <li tabindex="10"><a href="#" class="menu-button">About Us</a></li>
         </ul>
     </nav>
     <main>
-        <div class="two-columns-left content center-img" >
-            <img class="centre-img" src="images/arge_pizza_4_toppings_hero.jpg" alt="This is an image using 2 columns" height="518" width="696">
+        <div class="two-columns-left content centre-content" >
+            <img class="big-img" src="images/arge_pizza_4_toppings_hero.jpg"
+            alt="This is an image using 2 columns">
         </div>
         <div class="content">
-            Content 2
+            <img class="centre-img medium-img" src="images/arge_pizza_4_toppings_hero.jpg"
+            alt="This is an image using 2 columns">
+            <br>Content 2
         </div>
         <div class="content">
             Content 3
         </div>
-        <div class="content">
-            Content 4
+        <div class="content centre-content">
+            <img class="small-img" src="images/arge_pizza_4_toppings_hero.jpg"
+                alt="This is an image using 2 columns">
+            <br>content4
         </div>
         <div class="content">
             Content 5
         </div>
-        <div class="content">
+        <div class="content all-columns">
             Content 6
         </div>
     </main>

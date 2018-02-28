@@ -156,7 +156,16 @@ ul.main-menu > li {
     font-weight: bold;
 }
 
-.sub-menu{
+/*Must use the same properties from :hover for accessibility purposes*/
+.menu-button:focus{
+    box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #e73827;
+    color: white;
+    font-weight: bold;
+}
+
+/*Define a red title area on for the Main page*/
+.title-page{
     grid-column: 1/4;
     background: linear-gradient(to right, #f85032, #e73827);
     background-color: inherit;
@@ -164,5 +173,11 @@ ul.main-menu > li {
     font-weight: bold;
     min-height: auto;
     text-align: center;
+}
 
+/*Centralize content inside a div tag*/
+.centre-content {
+     position:relative;
+     display:inline-block;
+     text-align:center;
 }

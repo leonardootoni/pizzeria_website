@@ -1,7 +1,16 @@
 /*Specifc css for the page index.html (main website page) */
 /* Put an image in the centre of a content */
-.centre-img {
-    margin: auto;
-	display: block;
-    vertical-align: middle;
+.small-img {
+    width: 225px;
+    height: 125px;
+}
+
+.medium-img {
+    width: 350px;
+    height: 250px;
+}
+
+.big-img {
+    width: 600px;
+    height: 500px;
 }
