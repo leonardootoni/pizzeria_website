@@ -9,28 +9,21 @@
 */
 
 /*Base GRID layout definition*/
-* {
-    font-family: Helvetica, Arial, sans-serif;
-}
-
-html{
-    /*forces the vertical scroll bar to appear ever*/
-    overflow-y: scroll;
-}
-
-body{
+body {
     display: grid;
     grid-template-areas:"header"
                         "nav"
                         "main"
                         "footer";
+
     /*Center the website*/
     max-width: 1300px;
-    grid-row-gap: 8px;
-
+    grid-row-gap: 8px; /*Default spacing between the grid cells*/
 }
+
 header {
     grid-area: header;
+    /*Defining header columns*/
     display: grid;
     grid-template-columns: 2fr 10fr 2fr;
 }
@@ -40,6 +33,7 @@ nav {
 }
 
 main {
+    /*Defining main body columns*/
     grid-area: main;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -50,52 +44,66 @@ footer {
     grid-area: footer;
 }
 /******************************************************************************/
+/*  Style definition for the main html tags*/
 
-/* Style definition for the basic page components: Body, nav, header and footer*/
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+html {
+    /*forces the vertical scroll bar to appear ever*/
+    overflow-y: scroll;
+}
+
 body {
     background-image: linear-gradient(to bottom, white 0%, #E0D4D6 65%);
     background-repeat: no-repeat;
-
     margin-top: 1%;
     margin-bottom: 3%;
+
+    /*Put the web site centralized*/
     margin-left: auto;
     margin-right: auto;
 }
 
-header{
+header {
     background: linear-gradient(to right, #5BAB3A, #2D9810);
+    border-radius: 8px;
+    color: white;
+    background-color: inherit;
+    align-items: center;
     align-content: center;
-    border-radius: 5px;
-    min-height: 80px;
-    color: white;
-    background-color: inherit;
 }
 
-nav{
-    background: transparent;
-    color:inherit;
-    border-radius: 5px;
-}
-
-main {
-    background: transparent;
-    color:inherit;
-    border-radius: 5px;
-}
-
-footer{
+footer {
     background: linear-gradient(to right, #5BAB3A, #2D9810);
     color: white;
     background-color: inherit;
-    border-radius: 5px;
-    min-height: 80px;
+    border-radius: 8px;
+    min-height: 60px;
+    padding: 8px;
+    text-align: right;
+}
 
+/*Define a default <h> font*/
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*Removes a font-space on the header when using <a> as a link to an image*/
+header>div>a{
+    font-size: 0;
 }
 /******************************************************************************/
-
 /*Helper classes for specialized purposes*/
-
+/*Text style in the header*/
+.header-text {
+    font-size: 3em;
+    text-shadow: 4px 4px 2px #e73827, 0 0 1em #e73827;
+}
 /*CSS to merge content columns*/
+
 /* It uses all three columns*/
 .all-columns {
     grid-column: 1/4;
@@ -112,7 +120,7 @@ footer{
 }
 
 /*Define style for contents divs*/
-.content{
+.content {
     min-height: 80px;
     background-color: #FAF0F1;
     color: inherit;
@@ -121,13 +129,13 @@ footer{
 }
 
 /*Remove all styles of ul and li elements under the main-menu class*/
-ul.main-menu{
+ul.main-menu {
     padding: 0;
     text-align: center;
     margin: 0;
 }
 
-ul.main-menu > li {
+ul.main-menu>li {
     list-style-type: none;
     display: inline;
 }
@@ -146,26 +154,29 @@ ul.main-menu > li {
     background-color: #5BAB3A;
     border: 1px solid #ccc;
     border-radius: 8px;
+    font-family: sans-serif;
     font-weight: bold;
+
 }
 
-.menu-button:hover{
-    box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+.menu-button:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: #e73827;
     color: white;
     font-weight: bold;
+    font-family: sans-serif;
 }
 
 /*Must use the same properties from :hover for accessibility purposes*/
-.menu-button:focus{
-    box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+.menu-button:focus {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: #e73827;
     color: white;
     font-weight: bold;
 }
 
 /*Define a red title area on for the Main page*/
-.title-page{
+.title-page {
     grid-column: 1/4;
     background: linear-gradient(to right, #f85032, #e73827);
     background-color: inherit;
@@ -173,11 +184,14 @@ ul.main-menu > li {
     font-weight: bold;
     min-height: auto;
     text-align: center;
+    border-radius: 8px;
+    padding: 4px;
+
 }
 
-/*Centralize content inside a div tag*/
+/*Centralize any content on the center*/
 .centre-content {
-     position:relative;
-     display:inline-block;
-     text-align:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
