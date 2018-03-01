@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pizzeria</title>
+    <link rel="icon" type="image/png" href="images/favicon.png"/>
     <!--Main css file for all website -->
     <link rel="stylesheet" href="css/base_layout.css" type="text/css">
+    <!-- General fonts to website-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!--specific css for the page goes here -->
     <link rel="stylesheet" href="css/index.css" type="text/css">
@@ -15,13 +19,13 @@
     <!-- the header and nav sections needs to repeat in each website's page -->
     <header>
         <div class="centre-content">
-            <a href="index.html">
-                <img  class="centre-img" src="images/logo.png" alt="Site's logotype" height="120" width="120">
+            <a href="/index.html">
+                <img src="/images/logo.png" alt="Site's logotype" height="120" width="120">
             </a>
         </div>
-        <div><h1>This is a Test Header</h1></div>
+        <div class="centre-content header-text"><h1>Pizzeria website</h1></div>
         <div class="centre-content">
-            <img src="images/italy-flag.png" alt="Italy Flag" height="120" width="120">
+            <img id="flag" src="images/italy-flag.png" alt="Italy Flag" height="120" width="120">
         </div>
     </header>
     <nav>
@@ -37,6 +41,7 @@
             <li tabindex="9"><a href="#" class="menu-button">Services</a></li>
             <li tabindex="10"><a href="#" class="menu-button">About Us</a></li>
         </ul>
+
     </nav>
     <main>
         <div class="two-columns-left content centre-content" >
@@ -46,15 +51,19 @@
         <div class="content">
             <img class="centre-img medium-img" src="images/arge_pizza_4_toppings_hero.jpg"
             alt="This is an image using 2 columns">
-            <br>Content 2
+            <div>Content 2</div>
         </div>
         <div class="content">
             Content 3
         </div>
-        <div class="content centre-content">
-            <img class="small-img" src="images/arge_pizza_4_toppings_hero.jpg"
-                alt="This is an image using 2 columns">
-            <br>content4
+        <div class="content" style="min-height:150px;">
+            <div class="centre-content">
+                <img class="small-img" src="images/arge_pizza_4_toppings_hero.jpg"
+                    alt="This is an image using 2 columns">
+            </div>
+            <div class="centre-content">
+                Content 4
+            </div>
         </div>
         <div class="content">
             Content 5
@@ -64,8 +73,6 @@
         </div>
     </main>
     <!-- The footer section needs to repeat in each website's page -->
-    <footer>
-        <h4>This is the footer</h4>
-    </footer>
+    <footer><div>Pizzeria website footer &reg;</div></footer>
 </body>
 </html>
