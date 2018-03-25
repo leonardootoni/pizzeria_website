@@ -3,6 +3,7 @@
 .eight-frames-four-frames {
     display: grid;
     grid-template-columns: 9fr 3fr;
+    height: 43em;
 }
 
 
@@ -16,18 +17,19 @@ figure{
 }
 
 .figure-unselected{
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 figure:hover{
     border: 5px solid #4C8C42;
+    opacity: 1;
 }
 
 .figure-selected{
     background-color: #F2EDA0;
     color: inherit;
     opacity: 1;
-    transition: all 0.6s ease;
+    transition: all 0.5s ease;
 }
 
 figcaption{
@@ -54,20 +56,21 @@ figure>img{
     padding-bottom: .4em;
 }
 .select-straight{
-    border: 2px solid #5e9732;
     height: 3em;
     width: 5em;
     line-height: 36px;
-    padding-left: 10px;
-    padding-right: 16px;
+    padding-left: 4px;
 }
 
-#add-order-button{
-    /* border: 2px solid #5e9732;
-    height: 3em;
-    width: 10em;
-    background-color: #5e9732;
-    */
+.select-straight:enabled{
+    border: 2px solid #5e9732;
+}
+
+.select-straight:disabled{
+    border: 2px solid #5e9732;
+}
+    
+.add-order-button{
 
 	box-shadow: 0px 3px 14px -7px #3e7327;
 	background-color:#77b55a;
@@ -78,19 +81,21 @@ figure>img{
 	display:inline-block;
 	cursor:pointer;
 
-
 	font-size:.8em;
 	font-weight:bold;
 	padding:6px 6px;
 	text-decoration:none;
 }
-#add-order-button:hover {
-	background-color:#72b352;
-    color:white;
-}
-#add-order-button:active {
+
+.add-order-button:active:enabled {
 	position:relative;
 	top:1px;
+}
+
+.add-order-button:disabled {
+	background-color: darkgray;
+    border-color: gray;
+    color: white;
 }
 
 #accordion .ui-state-active {
