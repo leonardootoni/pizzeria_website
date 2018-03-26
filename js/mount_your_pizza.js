@@ -1,58 +1,3 @@
-$(document).ready(function() {
-
-    $("#accordion").accordion({
-        heightStyle: "content",
-        autoHeight: false,
-        clearStyle: true,
-    });
-
-    //load all pizza data and put them into the page
-    loadPizzaDataToPage("#pizza-flavour-options", pizzaMenuData);
-    loadPizzaDataToPage("#pizza-toppings-options", pizzaToppings);
-    loadPizzaDataToPage("#pizza-cheese-options", pizzaCheeses);
-
-    /*set to #pizza-sizes children elements an event handler*/
-    $("#pizza-sizes").children().each(function(index, item) {
-
-        $("#" + pizzaSize[index].id).click(function() {
-            performSelectionPizzaSize($("#" + pizzaSize[index].id), "PizzaSize");
-        });
-    });
-
-    /*set to #pizza flavours children elements an event handler*/
-    $("#pizza-flavour-options").children().each(function(index, item) {
-
-        $("#" + pizzaMenuData[index].id).click(function() {
-            performSelectionPizzaFlavour($("#" + pizzaMenuData[index].id), "PizzaFlavour");
-        });
-    });
-
-    /*set to #pizza toppings children elements an event handler*/
-    $("#pizza-toppings-options").children().each(function(index, item) {
-
-        $("#" + pizzaToppings[index].id).click(function() {
-            performSelectionOptionals($("#" + pizzaToppings[index].id), "pizzaToppings");
-        });
-    });
-
-    /*set to #pizza toppings children elements an event handler*/
-    $("#pizza-cheese-options").children().each(function(index, item) {
-
-        $("#" + pizzaCheeses[index].id).click(function() {
-            performSelectionOptionals($("#" + pizzaCheeses[index].id), "pizzaCheeses");
-        });
-    });
-
-    $("#pizza-quantity").click(function() {
-        updateBasketAmount($("#pizza-quantity").val());
-    });
-
-    //Set a default pizza size pre-selected
-    performSelectionPizzaSize($("#" + pizzaSize[0].id), "PizzaSize");
-
-});
-
-
 //store the last Pizza Size element clicked
 var lastSizeClicked = "";
 
@@ -72,20 +17,25 @@ var customPizza = {
         if (this.size != "" && this.flavour != "") {
 
             //pizza price updated according to it size
-            let subTotal = this.basePrice * this.multiplier;
+            let subTotal = 0;
+            subTotal = Number(this.basePrice).toFixed(2) * Number(this.multiplier);
 
+            let subToppings=0;
             for (let i = 0; i < this.toppings.length; i++) {
-                subTotal += this.toppings[i].price;
+                subToppings = Number(this.toppings[i].price);
+
+                subTotal += subToppings;
+
             }
 
             for (let i = 0; i < this.cheeses.length; i++) {
-                subTotal += this.cheeses[i].price;
+                subTotal += Number(this.cheeses[i].price);
             }
 
-            let calculatedFinalPrince = parseFloat(subTotal * this.amount).toFixed(2);
-            console.log("Calculated final price: " + calculatedFinalPrince);
+            let calculatedFinalPrice = subTotal * this.amount;
+            calculatedFinalPrice = Number(calculatedFinalPrice.toFixed(2));
 
-            return calculatedFinalPrince;
+            return calculatedFinalPrice;
 
         } else {
             return 0;
@@ -93,7 +43,71 @@ var customPizza = {
     }
 };
 
-function performSelectionPizzaSize(elementId, subGroup){
+
+
+$(document).ready(function() {
+
+    $("#accordion").accordion({
+        heightStyle: "content",
+        autoHeight: false,
+        clearStyle: true,
+    });
+
+    //load all pizza data and put them into the page
+    loadPizzaDataToPage("#pizza-flavour-options", pizzaMenuData);
+    loadPizzaDataToPage("#pizza-toppings-options", pizzaToppings);
+    loadPizzaDataToPage("#pizza-cheese-options", pizzaCheeses);
+
+    /*set to #pizza-sizes children elements an event handler*/
+    $("#pizza-sizes").children().each(function(index, item) {
+
+        $("#" + pizzaSize[index].id).click(function() {
+            performSelectionPizzaSize($("#" + pizzaSize[index].id), "PizzaSize");
+
+        });
+    });
+
+    /*set to #pizza flavours children elements an event handler*/
+    $("#pizza-flavour-options").children().each(function(index, item) {
+
+        $("#" + pizzaMenuData[index].id).click(function() {
+            performSelectionPizzaFlavour($("#" + pizzaMenuData[index].id), "PizzaFlavour");
+            updateOrderSummary();
+        });
+    });
+
+    /*set to #pizza toppings children elements an event handler*/
+    $("#pizza-toppings-options").children().each(function(index, item) {
+
+        $("#" + pizzaToppings[index].id).click(function() {
+            performSelectionOptionals($("#" + pizzaToppings[index].id), "pizzaToppings");
+            updateOrderSummary();
+        });
+    });
+
+    /*set to #pizza toppings children elements an event handler*/
+    $("#pizza-cheese-options").children().each(function(index, item) {
+
+        $("#" + pizzaCheeses[index].id).click(function() {
+            performSelectionOptionals($("#" + pizzaCheeses[index].id), "pizzaCheeses");
+            updateOrderSummary();
+        });
+    });
+
+    $("#pizza-quantity").click(function() {
+        updateBasketAmount($("#pizza-quantity").val());
+    });
+
+    //Set a default pizza size pre-selected
+    //performSelectionPizzaSize($("#" + pizzaSize[0].id), "PizzaSize");
+
+
+});
+
+
+
+
+function performSelectionPizzaSize(elementId, subGroup) {
 
     selectElement(elementId, subGroup);
     setCustomPizza(elementId, subGroup);
@@ -103,12 +117,20 @@ function performSelectionPizzaSize(elementId, subGroup){
     loadPizzaDataToPage("#pizza-toppings-options", pizzaToppings);
     loadPizzaDataToPage("#pizza-cheese-options", pizzaCheeses);
 
+    //update all toppings selected by the user
+    updatePriceCustomPizzaExtraOptionsList();
+    defineAddOrderButtonBehaviour();
+
     //Perform a reset on the amount select element
     resetBasketAmount();
 
+    $( "#accordion" ).accordion( "option", "active", 1 );
+    //removeClass( "ui-state-disabled" );
+    console.log("running");
+
 }
 
-function performSelectionPizzaFlavour(elementId, subGroup){
+function performSelectionPizzaFlavour(elementId, subGroup) {
 
     selectElement(elementId, subGroup);
     setCustomPizza(elementId, subGroup);
@@ -118,19 +140,21 @@ function performSelectionPizzaFlavour(elementId, subGroup){
 
     updateFinalPriceOnScreen();
 
+    $( "#accordion" ).accordion( "option", "active", 2 );
+
 }
 
 //Toppings or cheeses
-function performSelectionOptionals(elementId, subGroup){
+function performSelectionOptionals(elementId, subGroup) {
 
-    updateCustomPizzaOptionals(elementId, subGroup);
+    manageCustomPizzaExtraOptionsList(elementId, subGroup);
     selectElement(elementId, subGroup);
     updateFinalPriceOnScreen();
 
 }
 
 //Manage all optionals selected by the user
-function updateCustomPizzaOptionals(elementId, subGroup){
+function manageCustomPizzaExtraOptionsList(elementId, subGroup) {
 
     dataModel = (subGroup == "pizzaToppings" ? pizzaToppings : pizzaCheeses);
 
@@ -140,6 +164,26 @@ function updateCustomPizzaOptionals(elementId, subGroup){
     } else {
         addItemCustomPizzaArray(customPizza.toppings, dataModel, elementId.selector.substring(1));
     }
+}
+
+/*Update the Optionals list price according to the customPizza.multiplier*/
+function updatePriceCustomPizzaExtraOptionsList() {
+
+    let newPrice=0;
+    for (let i = 0; i < customPizza.toppings.length; i++) {
+        newPrice = Number(customPizza.toppings[i].price) * Number(customPizza.multiplier);
+
+        customPizza.toppings[i].price = newPrice.toFixed(2);
+
+    }
+
+
+    for (let i = 0; i < customPizza.cheeses.length; i++) {
+        newPrice = Number(customPizza.cheeses.price) * Number(customPizza.multiplier);
+
+        customPizza.cheeses[i].price = newPrice.toFixed(2);
+    }
+
 }
 
 /*Apply css class style on select elements*/
@@ -192,7 +236,7 @@ function setCustomPizza(elementId, subGroup) {
         customPizza.size = elementId.selector.substring(1);
 
         //Search in the pizzaSize to get the pizza base price
-        customPizza.multiplier = (getPropertyValueByName(pizzaSize, customPizza.size)).basePriceMultiplier;
+        customPizza.multiplier = Number((getPropertyValueByName(pizzaSize, customPizza.size)).basePriceMultiplier);
 
     } else if (subGroup == "PizzaFlavour") {
 
@@ -200,7 +244,7 @@ function setCustomPizza(elementId, subGroup) {
         customPizza.flavour = elementId.selector.substring(1);
 
         //Search in the pizzaMenuData to get the pizza base price
-        customPizza.basePrice = (getPropertyValueByName(pizzaMenuData, customPizza.flavour)).price;
+        customPizza.basePrice = Number((getPropertyValueByName(pizzaMenuData, customPizza.flavour)).price);
 
     } else {
         console.error("subGroup value not specified.");
@@ -248,11 +292,9 @@ function loadPizzaDataToPage(selector, object) {
             let price = customPizza.multiplier * object[index].price;
             price = Number(price).toFixed(2);
 
-            //console.log("multiplier: " + customPizza.multiplier + " price: " + object[index].price);
-            //console.log("Final Price: "+ price);
-
             let priceHTML = "<span>$</span><span>" + price + "</span>";
             $(item).find("figcaption").children().next().html(priceHTML);
+
 
         });
     });
@@ -260,26 +302,26 @@ function loadPizzaDataToPage(selector, object) {
 }
 
 
-function updateFinalPriceOnScreen(){
-    $("#final-price-value").html("$" + customPizza.finalPrice());
+function updateFinalPriceOnScreen() {
+    if (customPizza.finalPrice() > 0) {
+        $("#final-price-value").html(customPizza.finalPrice());
+    }
 }
 
 
 //Set the amount of items in the basket and update the price
-function updateBasketAmount(amount){
-    if(amount!=null){
+function updateBasketAmount(amount) {
+    if (amount != null) {
         customPizza.amount = amount;
     }
     updateFinalPriceOnScreen();
 
-    console.log("Updating basket. Amount:" + amount + " final price: " + customPizza.finalPrice());
-
 }
 
-function resetBasketAmount(){
+function resetBasketAmount() {
     customPizza.amount = 1;
     $("#pizza-quantity").val(1);
-    $("#final-price-value").html("$ " + customPizza.finalPrice());
+    $("#final-price-value").html(customPizza.finalPrice());
 }
 
 /*Enable or disable the button "Add To Order" according to the pizza size and
@@ -318,27 +360,45 @@ function deleteItemCustomPizzaArray(array, dataModel, elementId) {
 customPizza*/
 function addItemCustomPizzaArray(array, dataModel, elementId) {
 
-    let price = "";
-    let name = "";
-
     for (let i = 0; i < dataModel.length; i++) {
         if (dataModel[i].id == elementId) {
 
             //get the name and price from the data moodel
-            price = Number(dataModel[i].price);
-            name = dataModel[i].name;
-
-            array.push({
-                "id": elementId,
-                "name": name,
-                "price": price
-            });
+            let obj = { id:elementId, name:dataModel[i].name, price:Number(dataModel[i].price)};
+            array.push(obj);
 
             return;
+
         }
     }
 
+
+
     console.error("OPERATION ADD: elementId " + elementId + " was not found into the dataModel:");
     console.error(dataModel);
+
+}
+
+function updateOrderSummary(){
+
+    let html = "";
+
+    html+="<div>Pizza size: " + customPizza.size + "</div>";
+    html+="<div>Pizza Flavor: " + customPizza.flavour + " - $" + customPizza.basePrice +"</div>";
+    if(customPizza.toppings.length >0){
+        html+="<div>Toppings:</div>";
+        for(let i=0; i<customPizza.toppings.length;i++){
+            html+="<div>" + customPizza.toppings[i].name + " - $" + customPizza.toppings[i].price + "</div>";
+        }
+    }
+
+    if(customPizza.cheeses.length >0){
+        html+="<div>Extra cheeses:</div>";
+        for(let i=0; i<customPizza.cheeses.length;i++){
+            html+="<div>" + customPizza.cheeses[i].name + " - $" + customPizza.cheeses[i].price + "</div>";
+        }
+    }
+
+    $("#order-sumary-box").html(html);
 
 }
