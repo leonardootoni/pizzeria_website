@@ -17,7 +17,7 @@ body {
                         "footer";
 
     /*Center the website*/
-    max-width: 1300px;
+    max-width: 1320px;
     grid-row-gap: 8px; /*Default spacing between the grid cells*/
 }
 
