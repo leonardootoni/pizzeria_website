@@ -37,7 +37,7 @@
         <ul class="main-menu">
             <li tabindex="1"><a href="menu.html" class="menu-button">Menu</a></li>
             <li tabindex="2"><a href="#" class="menu-button">Promo</a></li>
-            <li tabindex="3"><a href="#" class="menu-button">Mount your Pizza</a></li>
+            <li tabindex="3"><a href="mount_your_pizza.html" class="menu-button">Mount your Pizza</a></li>
             <li tabindex="4"><a href="#" class="menu-button">Order Track</a></li>
             <li tabindex="5"><a href="#" class="menu-button">Nutritional Guide</a></li>
             <li tabindex="6"><a href="#" class="menu-button">Email Offers</a></li>
@@ -54,7 +54,7 @@
         <div class="content all-columns">
             <div class="eight-frames-four-frames">
                 <div id="accordion">
-                    <h3>Step 1 - Select a size</h3>
+                    <h3 id="Step1">Step 1 - Select a size</h3>
                     <div id="pizza-sizes">
                         <figure id="pizza-small" class="figure-unselected">
                             <img src="../images/mount_your_pizza/pizza_draw@0.5x.png" alt="Pizza Size: Small" width="172" height="172">
@@ -85,7 +85,7 @@
                             </figcaption>
                         </figure>
                     </div>
-                    <h3>Step 2 - Select a flavour</h3>
+                    <h3 id="Step2">Step 2 - Select a flavour</h3>
                     <div id="pizza-flavour-options">
                         <!-- META DESCRIPTORS PROPERTIES FILLED BY JAVASCRIPT -->
                         <figure class="pizza-flavor figure-unselected">
@@ -145,7 +145,7 @@
                             </figcaption>
                         </figure>
                     </div>
-                    <h3>Step 3 - Select extra toppings</h3>
+                    <h3 id="Step3">Step 3 - Select extra toppings</h3>
                     <div id="pizza-toppings-options">
                         <!-- META DESCRIPTORS PROPERTIES FILLED BY JAVASCRIPT -->
                         <figure class="figure-unselected">
@@ -205,7 +205,7 @@
                             </figcaption>
                         </figure>
                     </div>
-                    <h3>Step 4 - Select extra cheese</h3>
+                    <h3 id="Step4">Step 4 - Select extra cheese</h3>
                     <div id="pizza-cheese-options">
                         <!-- META DESCRIPTORS PROPERTIES FILLED BY JAVASCRIPT -->
                         <figure class="figure-unselected">
@@ -238,11 +238,10 @@
                         </figure>
                     </div>
                 </div>
-
                 <div>
                     <div class="total-price-box">
                         <h3 class="total-price-title">Total Price</h3>
-                        <h4 id="final-price-value" class="total-price-value">$</h4>
+                        <h4 class="total-price-value"><span>$<span id="final-price-value"></span></span></h4>
                         <div>
                             <select name="quantity" id="pizza-quantity" class="select-straight" style="width: 50px;">
                                 <option value="" disabled>Select Quantity</option>
@@ -258,6 +257,14 @@
                                 <option value="10">10</option>
                             </select>
                             <input type="button" value="ADD TO ORDER" id="add-order-button" class="add-order-button">
+                        </div>
+                    </div>
+
+                    <div class="total-price-box">
+                        <h3 class="total-price-title">Order Summary</h3>
+                        <div id="order-sumary-box">
+
+
                         </div>
                     </div>
                 </div>
