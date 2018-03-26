@@ -5,34 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pizzeria</title>
-    <link rel="icon" type="image/png" href="images/favicon.png"/>
+    <link rel="icon" type="image/png" href="../images/favicon.png"/>
     <!--Main css file for all website -->
-    <link rel="stylesheet" href="css/base_layout.css" type="text/css">
+    <link rel="stylesheet" href="../css/base_layout.css" type="text/css">
     <!-- General fonts to website-->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!--specific css for the page goes here -->
-    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <!--link rel="stylesheet" href="../css/name_page.css" type="text/css"-->
 </head>
 <body>
     <!-- the header and nav sections needs to repeat in each website's page -->
     <header>
         <div class="centre-content">
-            <a href="/index.html">
-                <img src="/images/logo.png" alt="Site's logotype" height="120" width="120">
+            <a href="../index.html">
+                <img src="../images/logo.png" alt="Site's logotype" height="120" width="120">
             </a>
         </div>
         <div class="centre-content header-text"><h1>Pizzeria website</h1></div>
         <div class="centre-content">
-            <img id="flag" src="images/italy-flag.png" alt="Italy Flag" height="120" width="120">
+            <img src="../images/italy-flag.png" alt="Italy Flag" height="120" width="120">
         </div>
     </header>
     <nav>
         <ul class="main-menu">
-            <li tabindex="1"><a href="pages/menu.html" class="menu-button">Menu</a></li>
             <li tabindex="2"><a href="#" class="menu-button">Promo</a></li>
-            <li tabindex="3"><a href="pages/mount_your_pizza.html" class="menu-button">Mount your Pizza</a></li>
+            <li tabindex="3"><a href="#" class="menu-button">Mount your Pizza</a></li>
             <li tabindex="4"><a href="#" class="menu-button">Order Track</a></li>
             <li tabindex="5"><a href="#" class="menu-button">Nutritional Guide</a></li>
             <li tabindex="6"><a href="#" class="menu-button">Email Offers</a></li>
@@ -41,42 +40,34 @@
             <li tabindex="9"><a href="#" class="menu-button">Services</a></li>
             <li tabindex="10"><a href="#" class="menu-button">About Us</a></li>
         </ul>
-
     </nav>
     <main>
-        <div class="two-columns-left content centre-content" >
-            <img class="big-img" src="images/arge_pizza_4_toppings_hero.jpg"
-            alt="This is an image using 2 columns">
-        </div>
-        <div class="content">
-            <img class="centre-img medium-img" src="images/arge_pizza_4_toppings_hero.jpg"
-            alt="This is an image using 2 columns">
-            <div>Content 2</div>
-        </div>
-        <div class="content">
-            Content 3
-        </div>
-        <div class="content" style="min-height:150px;">
-            <div class="centre-content">
-                <img class="small-img" src="images/arge_pizza_4_toppings_hero.jpg"
-                    alt="This is an image using 2 columns">
-            </div>
-            <div class="centre-content">
-                Content 4
-            </div>
-        </div>
-        <div class="content">
-            Content 5
+        <div class="content title-page">
+          <h1>  Contact Us! </h1>
         </div>
         <div class="content all-columns">
-            Content 6
+        <legend> Any questions or concerns? Please feel free to send us a message or give us a call! </legend>
+        <fieldset>
+        <label> Name: <input type="text" id="name" name="name" /> <br/> <br/> </label>
+        Contact Option: <select name="contact" id="contact">
+                          <option selected>Email</option>
+                          <option>Phone</option>
+                        </select><br /> <br/>
+        <label> Email/Phone Number <input type="text" id="contactoption" name="contactoption" /> <br/> <br/> </label>
+      <label>  Reason for Contact <textarea id="reason" name="reason" rows="6" cols="50"></textarea> <br/> <br/> <br/> </label>
+        <input type="button"  name="reg1" value="Submit"/>
+      </fieldset>
         </div>
+        <div class="content all-columns">
+            <h2> You can also stop by or give us a call! </h2>  
+            Pizzeria<br>
+        9050  Martin Grove Road<br>
+        Toronto, Ontario,M9L 1B1 <br>
+        <p> 416 -435-1111 </p>
+        </div>
+
     </main>
     <!-- The footer section needs to repeat in each website's page -->
-    <footer>
-        <div>Pizzeria website &reg;</div>
-        <div>ITC-5103-0NA - Web Programming and Design</div>
-        <div>Annonymous Team</div>
-    </footer>
+    <footer><div>Pizzeria website footer &reg;</div></footer>
 </body>
 </html>
