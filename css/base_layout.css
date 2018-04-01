@@ -195,3 +195,16 @@ ul.main-menu>li {
     align-items: center;
     justify-content: center;
 }
+
+/*Setup the shopping cart on the header left top*/
+#lnk-cart{
+    display: contents;
+}
+#shopping-cart{
+    visibility: hidden;
+    margin-left: 11%;
+    position: absolute;
+    float: right;
+    margin-top: 6%;
+
+}
