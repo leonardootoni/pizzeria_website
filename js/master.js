@@ -5,8 +5,8 @@
 Author: *** Leonardo Otoni de Assis ***
 *******************************************************************************/
 
-/*Object to store all website menu links.
-    It uses the key:value approach, that means:
+/*Object to store all website menu links. It uses the key:value approach, that
+means:
         key: The HTML menu name
         value: The html href property
 */
@@ -35,10 +35,12 @@ var _$ = function(id){
     return document.getElementById(id);
 }
 
-window.onload = function(){
-    generateMenuHTML();
-    controlShoppingCartExhibition();
-}
+//Using addEventListener to guarantee that these methods are called even if someone
+//specify a window.onload in another JS.
+window.addEventListener("load", function() {
+        generateMenuHTML();
+        controlShoppingCartExhibition();
+    });
 
 //Generic function to insert the menu links according to the object menu_html
 function  generateMenuHTML(){
