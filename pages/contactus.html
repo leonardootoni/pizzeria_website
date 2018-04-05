@@ -77,15 +77,15 @@ window.onload= function validate(){
 
         var pattern = /^[a-zA-Z]{2,30}$/ ;
         if(namespace === ""){
-            document.getElementById('errfname').innerHTML = "Please enter a name";
+            document.getElementById('namespace').innerHTML = "Please enter a name";
         } else {
-            document.getElementById('errfname').innerHTML = "fname is valid";
+            document.getElementById('namespace').innerHTML = "fname is valid";
         }
 
         if(contactoption === ""){
-            document.getElementById('errcontactoption').innerHTML = "Please enter email.phone";
+            document.getElementById('contactoption').innerHTML = "Please enter email/phone";
         } else {
-            document.getElementById('errfname').innerHTML = "thank you";
+            document.getElementById('contactoption').innerHTML = "thank you";
         }
         }
             </script>
