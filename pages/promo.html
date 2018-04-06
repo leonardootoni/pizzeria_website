@@ -65,18 +65,39 @@
     <fieldset>
     <form id="account" name="account" action="sigh.php" method="get">
         <h1>Email</h1>
-        <label>E-Mail:<br> <input type="email" name="email"
-                       id="mail" /><span style="color:red;" id="errmail"></span><br/></label>
-        <label>Confirm E-Mail:<br> <input type="email" name="email"
-                                          id="cmail" /><span style="color:red;" id="cerrmail"></span><br/></label>
-        <label>Phone Number:<br> <input type="number" name="phone"
-                                        id="phn" /><span style="color:red;" id="errphn"></span><br/></label>
+        E-Mail: <input type="email" name="email"
+                       id="mail" /><span style="color:red;" id="errmail"></span><br />
+        Phone Number: <input type="number" name="phone"
+                             id="phn" /><span style="color:red;" id="errphn"></span><br />
         <br/>
-        <input type="button" value="Reset" id="reset"/>
-        <input type="button" value="Submit" id="submit"/>
+        <input type="button" value="Reset" id="reset" onclick="resetform()"/>
+        <input type="button" value="Submit" id="submit" onclick="validate()"/>
     </form>
     </fieldset>
     <script>
+        function validate() {
+            var mail = document.getElementById('mail').value;
+            var phn = document.getElementById('phn').value;
+
+            var pattern1 = /^[a-zA-Z0-9]{2,50}$/
+            if(mail == ''){
+                document.getElementById('errmail').innerHTML = "Please enter Email";
+            }else {
+                document.getElementById('errmail').innerHTML = "Email is valid";
+            }
+
+            var pattern3 = /^[0-9]{2,10}$/
+            if(phn == ''){
+                document.getElementById('errphn').innerHTML = "Please enter Phone Number";
+            } else {
+                document.getElementById('errphn').innerHTML = "Phone Number is valid";
+            }
+            alert("Registered");
+        }
+        function resetform() {
+            document.getElementById('mail').value = '';
+            document.getElementById('phn').value = '';
+        }
     </script>
 </main>
 </body>
