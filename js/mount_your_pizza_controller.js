@@ -272,13 +272,13 @@ function setCustomPizza(elementId, subGroup) {
 
         //Set customPizza's chose and price multiplier
         customPizza.setPizzaSize(pizzaMenu.getPizzaSizeById(elementId.selector.substring(1)))
-        console.log("new customPizza size: " + customPizza.getPizzaSize().getId());
+        //console.log("new customPizza size: " + customPizza.getPizzaSize().getId());
 
     } else if (subGroup == PIZZA_FLAVOUR_SELECTOR) {
 
         //Set customPizza's flavour and base price
         customPizza.setPizza(pizzaMenu.getPizzaById(elementId.selector.substring(1)))
-        console.log("new customPizza flavour: " + customPizza.getPizza().getId());
+        //console.log("new customPizza flavour: " + customPizza.getPizza().getId());
     } else {
         console.error(SET_CUSTOM_PIZZA_ERROR_MSG);
     }
@@ -369,7 +369,7 @@ function addPizzaIntoTheBasket(){
         userBasket.push(customPizza.getSimpleSerializableObject());
     }
 
-    console.log(userBasket);
+    //console.log(userBasket);
 
     //stringify the simple object before to put It in the session
     sessionStorage.setItem(USER_CUSTOM_PIZZA_BASKET, JSON.stringify(userBasket));

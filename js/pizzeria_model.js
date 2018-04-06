@@ -302,7 +302,7 @@ class CustomPizza {
         this.removeToppingById = function(toppingId){
             for(let i=0; i<_toppings.length; i++){
                 if(_toppings[i].getId() == toppingId){
-                    console.log("Removing topping index " + i);
+                    //console.log("Removing topping index " + i);
                     _toppings.splice(i,1);
                     return;
                 }
@@ -316,7 +316,7 @@ class CustomPizza {
         this.removeCheeseById = function(CheeseId){
             for(let i=0; i<_cheeses.length; i++){
                 if(_cheeses[i].getId() == CheeseId){
-                    console.log("Removing cheese index " + i);
+                    //console.log("Removing cheese index " + i);
                     _cheeses.splice(i,1);
                     return;
                 }
@@ -419,7 +419,7 @@ function loadPizzaDataSet(){
                                         pizzaSizeDataModel[i].slices,
                                         pizzaSizeDataModel[i].basePriceMultiplier );
     }
-    console.log("loaded " + pizzaSize.length + " elements from pizzaSizeDataModel");
+    //console.log("loaded " + pizzaSize.length + " elements from pizzaSizeDataModel");
 
     for(let i=0; i<pizzaMenuDataModel.length;i++){
         pizza[i] = new Pizza(   pizzaMenuDataModel[i].id,
@@ -428,7 +428,7 @@ function loadPizzaDataSet(){
                                 pizzaMenuDataModel[i].price,
                                 pizzaMenuDataModel[i].imageURL );
     }
-    console.log("loaded " + pizza.length + " elements from pizzaMenuDataModel");
+    //console.log("loaded " + pizza.length + " elements from pizzaMenuDataModel");
 
     for(let i=0; i<pizzaToppingsDataModel.length;i++){
         topping[i] = new Topping(   pizzaToppingsDataModel[i].id,
@@ -437,7 +437,7 @@ function loadPizzaDataSet(){
                                     pizzaToppingsDataModel[i].price,
                                     pizzaToppingsDataModel[i].imageURL );
     }
-    console.log("loaded " + topping.length + " elements from pizzaToppingsDataModel");
+    //console.log("loaded " + topping.length + " elements from pizzaToppingsDataModel");
 
     for(let i=0; i<pizzaCheesesDataModel.length;i++){
         cheese[i] = new Cheese( pizzaCheesesDataModel[i].id,
@@ -446,7 +446,7 @@ function loadPizzaDataSet(){
                                 pizzaCheesesDataModel[i].price,
                                 pizzaCheesesDataModel[i].imageURL );
     }
-    console.log("loaded " + cheese.length + " elements from pizzaCheesesDataModel");
+    //console.log("loaded " + cheese.length + " elements from pizzaCheesesDataModel");
 
     //Create an instance of PizzaMenu with all pizza dataset
     return new PizzaMenu(pizzaSize, pizza, topping, cheese);
