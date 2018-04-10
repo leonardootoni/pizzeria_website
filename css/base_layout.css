@@ -121,7 +121,7 @@ header>div>a{
 
 /*Define style for contents divs*/
 .content {
-    min-height: 80px;
+    /*min-height: 80px;*/
     background-color: #FAF0F1;
     color: inherit;
     border-radius: 8px;
