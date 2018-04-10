@@ -11,7 +11,7 @@ const PIZZA_CHEESE_SELECTOR     = "#pizza-cheese-options";
 const PIZZA_AMOUNT_SELECTOR     = "#pizza-quantity";
 const PIZZA_FINAL_PRICE_SELECTOR= "#final-price-value";
 const PIZZA_ADD_ORDER_BUTTON    = "#add-order-button";
-const PIZZA_ORDER_SUMMARY_BOX   = "#order-sumary-box";
+const PIZZA_ORDER_SUMMARY_BOX   = "#order-summary-box";
 const JQUERY_ACCORDION_SELECTOR = "#accordion";
 const MODAL_POPUP               = "#myModal";
 
@@ -32,8 +32,6 @@ const ADD_TO_ORDER_BUTTON = "#add-order-button";
 const BUY_MORE_BUTTON = "#btn-buy-more";
 const PROCEED_CHECKOUT_BUTTON = "#btn-proceed-checkout";
 
-//basket key to save and recover the UserBasket in/from the sessionStorage;
-const USER_CUSTOM_PIZZA_BASKET  = "USER_CUSTOM_PIZZA_BASKET";
 
 //pages to redirectToPage
 const URL_BUY_MORE_PIZZAS   = window.location.protocol + "//" + window.location.host + "/pages/mount_your_pizza.html";
@@ -355,28 +353,11 @@ function manageCustomPizzaExtraOptionsList(elementId, subGroup) {
 actions to direct the user to the next steps/pages*/
 function addPizzaIntoTheBasket(){
 
-    //recover the userBasket from the session.
-    let userBasket = JSON.parse(sessionStorage.getItem(USER_CUSTOM_PIZZA_BASKET));
-
-    if(userBasket == null){
-        //userBasket do not exists yet.
-        //A new one will be created to save the customPizza into the user session
-        userBasket = [];
-        userBasket.push(customPizza.getSimpleSerializableObject());
-    }else{
-        //The user just has a basket. In this case add another cutomPizza to the
-        //existing one.
-        userBasket.push(customPizza.getSimpleSerializableObject());
-    }
-
-    //console.log(userBasket);
-
-    //stringify the simple object before to put It in the session
-    sessionStorage.setItem(USER_CUSTOM_PIZZA_BASKET, JSON.stringify(userBasket));
+    //Invoke a model method to save the order into the Basket
+    savePizzaIntoTheBasket(customPizza);
 
     //Show modal popup to the user questioning wich path do follow
     $(MODAL_POPUP).css({display: "block"});
-
 
 }
 
