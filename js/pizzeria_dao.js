@@ -159,8 +159,8 @@ pizzaCheesesDataModel = [
             "imageURL":"../images/mount_your_pizza/cheeses/cheese-Cheddar195x184.jpg"
         },
         {
-            "id":"cheese-extra-mozzarella",
-            "name":"Extra Mozzarella",
+            "id":"cheese-mozzarella",
+            "name":"Mozzarella",
             "description": "Mozzarella is the one cheese pizza needs, and ours is made with 100% Canadian milk. It has a milky and buttery taste.",
             "price":"2.65",
             "imageURL":"../images/mount_your_pizza/cheeses/cheese-ExtraMozzarella-195x184.jpg"
