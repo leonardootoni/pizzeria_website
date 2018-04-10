@@ -62,7 +62,6 @@ function controlShoppingCartExhibition(){
 
     let cart = JSON.parse(sessionStorage.getItem("USER_CUSTOM_PIZZA_BASKET"));
     if(cart != null){
-
         let elements = (cart.length > 9 ? 9 : cart.length);
         let pathImage = "";
 
