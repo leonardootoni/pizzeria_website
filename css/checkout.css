@@ -1,0 +1,115 @@
+.checkout_content{
+    display: grid;
+    grid-template-columns: 9fr 3fr;
+
+}
+
+.checkout_list_items{
+    display: grid;
+    grid-row-gap: 10px;
+}
+
+.checkout_line_item_container{
+    display: grid;
+}
+
+.checkout_line_item_container:hover{
+    background-color: #e1d8d8;
+    color: inherit;
+
+}
+
+.checkout_item{
+    display: grid;
+    grid-template-columns: 2fr 5fr 2fr;
+
+
+}
+
+
+.flex-element{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column-element{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-align-hcenter-vcenter{
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-align-text-left{
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+figure{
+    margin:0;
+}
+figure:hover{
+    border: 5px solid #F2E6B6;
+}
+
+.total-price-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+}
+
+.same-size{
+    font-size: 1em;
+    padding: 0.2em;
+}
+
+input[value="-"],input[value="+"]{
+    box-shadow: 0px 3px 14px -7px #3e7327;
+	background-color:#77b55a;
+    color:#ffffff;
+
+	border-radius:1px;
+	border:2px solid #5e9732;
+	display:inline-block;
+	cursor:pointer;
+
+	font-size:.8em;
+	font-weight:bold;
+	padding:6px 6px;
+	text-decoration:none;
+}
+
+input[value="-"]:active:enabled, input[value="+"]:active:enabled {
+	position:relative;
+	top:1px;
+}
+
+
+input[title=amount]{
+    width:1em;
+    height: 1.4em;
+    text-align: center;
+    color: black;
+    background-color: inherit;
+    border-color: white;
+}
+
+input[value="Remove Item"]{
+    background-color: #f85032;
+    color: white;
+    border-color: red;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.checkout_list_items>div{
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.83em;
+}
