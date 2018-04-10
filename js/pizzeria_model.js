@@ -4,6 +4,10 @@
  Author: *** Leonardo Otoni de Assis ***
 *******************************************************************************/
 
+//key used to save and recover the UserBasket in/from the sessionStorage;
+const USER_CUSTOM_PIZZA_BASKET  = "USER_CUSTOM_PIZZA_BASKET";
+const USER_BASKET_NULL_ERROR_MSG = "Error: Unable to get userBasket information.";
+
 class PizzaSize {
     constructor (id, name, slices, basePriceMultiplier){
         let _id = id;
@@ -375,29 +379,44 @@ class CustomPizza {
             }
         }
 
-        // Returns a simple object composed by all ids from other classes
-        this.getSimpleSerializableObject = function(){
+        /* Returns a simple object composed by all ids from other classes
+         * id - An unique identifier (pk). If not provided, 0 (zero) is setted
+         */
+        this.getSimpleSerializableObject = function(uniqueID){
 
             let obj = new Object();
-            obj.pizzaId = this.getPizzaSize().getId();
-            obj.pizzaFlavourId = this.getPizza().getId();
-            obj.pizzaToppings = [];
-            obj.pizzaCheeses = [];
+            obj.itemId = (uniqueID == null ? 0 : uniqueID);
+            obj.pizzaSize = this.getPizzaSize().getName();
+            obj.pizzaFlavour = this.getPizza().getName();
             obj.amount = this.getAmount();
+            obj.unitPrice = Number((this.getTotalPrice() / this.getAmount()).toFixed(2));
+            obj.subTotal = this.getTotalPrice();
+            obj.imageURL = this.getPizza().getImageURL();
+            obj.pizzaToppings = "";
+            obj.pizzaCheeses = "";
 
             if(customPizza.getToppings() != null){
                 let tpgs = customPizza.getToppings();
                 for(let i=0;i<tpgs.length;i++){
-                    obj.pizzaToppings.push(tpgs[i].getId());
+                    if(i==0){
+                        obj.pizzaToppings+=tpgs[i].getName();
+                    }else{
+                        obj.pizzaToppings+=", " + tpgs[i].getName();
+                    }
                 }
             }
 
             if(customPizza.getCheeses()!=null){
                 let chs = customPizza.getCheeses();
                 for(let i=0;i<chs.length;i++){
-                    obj.pizzaCheeses.push(chs[i].getId());
+                    if(i==0){
+                        obj.pizzaCheeses+=chs[i].getName();
+                    }else{
+                        obj.pizzaCheeses+=", " + chs[i].getName();
+                    }
                 }
             }
+
 
             return obj;
 
@@ -450,5 +469,56 @@ function loadPizzaDataSet(){
 
     //Create an instance of PizzaMenu with all pizza dataset
     return new PizzaMenu(pizzaSize, pizza, topping, cheese);
+
+}
+
+
+//Saves all orders into a user basket
+function savePizzaIntoTheBasket(customPizza){
+
+    //recover the userBasket from the session.
+    let userBasket = JSON.parse(sessionStorage.getItem(USER_CUSTOM_PIZZA_BASKET));
+
+    if(userBasket == null){
+        //userBasket do not exists yet.
+        //A new one will be created to save the customPizza into the user session
+        userBasket=[];
+        userBasket.push(customPizza.getSimpleSerializableObject());
+    }else{
+        //The user just has a basket. In this case add another cutomPizza to the
+        //existing one.
+        userBasket.push(customPizza.getSimpleSerializableObject(userBasket.length));
+    }
+
+    //console.log(userBasket);
+
+    //stringify the simple object before to put It in the session
+    sessionStorage.setItem(USER_CUSTOM_PIZZA_BASKET, JSON.stringify(userBasket));
+
+}
+
+//Recover the userBasket and returns a customPizza[]
+function getUserBasket(){
+
+    //recover the userBasket from the session.
+    let userBasket = JSON.parse(sessionStorage.getItem(USER_CUSTOM_PIZZA_BASKET));
+    if(userBasket == null){
+        log.error(USER_BASKET_NULL_ERROR_MSG);
+        throw USER_BASKET_NULL_ERROR_MSG;
+    }else{
+        return userBasket;
+    }
+}
+
+//Override PizzaBasket. Method called from checkout page, after to update the
+//amount of itens or removed some item from the basket
+function updateUserBasket(userBasket){
+
+    if(userBasket == null){
+        sessionStorage.remove(USER_CUSTOM_PIZZA_BASKET);
+    }else{
+        //stringify the simple object before to put It in the session
+        sessionStorage.setItem(USER_CUSTOM_PIZZA_BASKET, JSON.stringify(userBasket));
+    }
 
 }
