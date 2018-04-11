@@ -1,7 +1,10 @@
-/*
- * JS controller used on in the page mount_your_pizza.HTML
- * Author: Leonardo Otoni de Assis
- */
+/*******************************************************************************
+* JS Pizzaria website controller class
+********************************************************************************
+* Controller Class to the Mount Your Pizza page
+********************************************************************************
+ Author: *** Leonardo Otoni de Assis ***
+*******************************************************************************/
 
 //html page selectors
 const PIZZA_SIZE_SELECTOR       = "#pizza-sizes";
