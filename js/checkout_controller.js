@@ -1,3 +1,11 @@
+/*******************************************************************************
+* JS Pizzaria website controller class
+********************************************************************************
+* Controller Class to the Checkout page
+********************************************************************************
+ Author: *** Leonardo Otoni de Assis ***
+*******************************************************************************/
+
 const PIZZAS_BASKET_TEMPLATE_SELECTOR = "#pizzas-basket-template"
 const LIST_PIZZAS_BASKET_SELECTOR = "#list-pizzas-basket";
 const PIZZA_FINAL_PRICE_SELECTOR= "#final-price-value";
