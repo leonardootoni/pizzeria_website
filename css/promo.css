@@ -1,0 +1,38 @@
+html {
+    font-family: helvetica, arial;
+}
+#showContainer {
+    /* Main wrapper for all images */
+    width: 670px;
+    padding: 0;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+.navButton {
+    /* Make buttons look nice */
+    cursor: pointer;
+    float: left;
+    width: 25px;
+    height: 22px;
+    padding: 10px;
+    margin-right: 5px;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    background: #000000;
+    opacity: 0.65;
+    user-select: none;
+}
+.navButton:hover {
+    opacity: 1;
+}
+.caption {
+    float: right;
+}
+.imageContainer:not(:first-child) {
+    /* Hide all images except the first */
+    display: none;
+}
