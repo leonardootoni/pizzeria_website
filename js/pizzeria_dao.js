@@ -155,28 +155,28 @@ pizzaCheesesDataModel = [
             "id":"cheese-cheddar",
             "name":"Cheddar",
             "description": "Cheddar is made from cow’s milk, has a slightly crumbly texture, and boasts an earthy, sharp flavour.",
-            "price":"2.65",
+            "price":"1.65",
             "imageURL":"../images/mount_your_pizza/cheeses/cheese-Cheddar195x184.jpg"
         },
         {
             "id":"cheese-mozzarella",
             "name":"Mozzarella",
             "description": "Mozzarella is the one cheese pizza needs, and ours is made with 100% Canadian milk. It has a milky and buttery taste.",
-            "price":"2.65",
+            "price":"1.65",
             "imageURL":"../images/mount_your_pizza/cheeses/cheese-ExtraMozzarella-195x184.jpg"
         },
         {
             "id":"cheese-goat",
             "name":"Goat Cheese",
             "description": "Goat cheese has a tender and creamy texture, and a taste that pairs well with fruits, meats and vegetables.",
-            "price":"2.65",
+            "price":"2.85",
             "imageURL":"../images/mount_your_pizza/cheeses/cheese-Goat-195x184.jpg"
         },
         {
             "id":"cheese-parmigiano",
             "name":"Parmigiano",
             "description": "Parmigiano is a hard Italian cheese whose subtle flavour and versatility has made it a staple in Italian kitchens.",
-            "price":"2.65",
+            "price":"2.45",
             "imageURL":"../images/mount_your_pizza/cheeses/cheese-Parmigiano-195x184.jpg"
         }
     ];

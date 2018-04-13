@@ -40,10 +40,17 @@ const PROCEED_CHECKOUT_BUTTON = "#btn-proceed-checkout";
 const URL_BUY_MORE_PIZZAS   = window.location.protocol + "//" + window.location.host + "/pages/mount_your_pizza.html";
 const URL_CHECKOUT          = window.location.protocol + "//" + window.location.host + "/pages/checkout.html";
 
-var pizzaMenu = ""; //Main Object used in the mount_your_pizza
-var customPizza ="";  //CustomPizza assembled by the user
-var lastSizeClicked = ""; //store the last Pizza Size element clicked
-var lastPizzaClicked = "";//store the last Pizza element clicked
+//templates selectors
+const TEMPLATE_PIZZA_SIZE_SELECTOR      = "#pizza-size-elements";
+const TEMPLATE_PIZZA_FLAVOUR_SELECTOR   = "#pizza-flavour-elements";
+const TEMPLATE_PIZZA_TOPPINGS_SELECTOR  = "#pizza-toppings-elements";
+const TEMPLATE_PIZZA_CHEESES_SELECTOR   = "#pizza-cheeses-elements";
+
+
+let pizzaMenu = ""; //Main Object used in the mount_your_pizza
+let customPizza ="";  //CustomPizza assembled by the user
+let lastSizeClicked = ""; //store the last Pizza Size element clicked
+let lastPizzaClicked = "";//store the last Pizza element clicked
 
 $(document).ready(function() {
 
@@ -66,9 +73,13 @@ $(document).ready(function() {
     customPizza = new CustomPizza();
 
     //load the PizzaMenu data into the page
-    loadPizzaDataToPage(PIZZA_FLAVOUR_SELECTOR, pizzaMenu.getAllPizzasInTheMenu());
-    loadPizzaDataToPage(PIZZA_TOPPINGS_SELECTOR, pizzaMenu.getAllToppingsInTheMenu());
-    loadPizzaDataToPage(PIZZA_CHEESE_SELECTOR, pizzaMenu.getAllCheesesInTheMenu());
+    loadDataToPage( PIZZA_SIZE_SELECTOR, pizzaMenu.getAllPizzasSizeInTheMenu(), TEMPLATE_PIZZA_SIZE_SELECTOR);
+    loadDataToPage( PIZZA_FLAVOUR_SELECTOR, pizzaMenu.getAllPizzasInTheMenu(), TEMPLATE_PIZZA_FLAVOUR_SELECTOR);
+    loadDataToPage( PIZZA_TOPPINGS_SELECTOR, pizzaMenu.getAllToppingsInTheMenu(), TEMPLATE_PIZZA_TOPPINGS_SELECTOR);
+    loadDataToPage( PIZZA_CHEESE_SELECTOR, pizzaMenu.getAllCheesesInTheMenu(), TEMPLATE_PIZZA_CHEESES_SELECTOR);
+
+    //loadPizzaDataToPage(PIZZA_TOPPINGS_SELECTOR, pizzaMenu.getAllToppingsInTheMenu());
+    //loadPizzaDataToPage(PIZZA_CHEESE_SELECTOR, pizzaMenu.getAllCheesesInTheMenu());
 
     //initally disable the "Add to Order" Button and the amount comboselect
     disableAddToOrderComponents();
@@ -82,20 +93,16 @@ $(document).ready(function() {
         });
     });
 
-
     /*set to #pizza-sizes children elements an event handler*/
     $(PIZZA_FLAVOUR_SELECTOR).children().each(function(index, item) {
-
         $("#" + pizzaMenu.getAllPizzasInTheMenu()[index].getId()).click(function() {
             performPizzaFlavourSelection($("#" + pizzaMenu.getAllPizzasInTheMenu()[index].getId()), PIZZA_FLAVOUR_SELECTOR);
-
         });
     });
 
 
     /*set to #pizza toppings children elements an event handler*/
     $(PIZZA_TOPPINGS_SELECTOR).children().each(function(index, item) {
-
         $("#" + pizzaMenu.getAllToppingsInTheMenu()[index].getId()).click(function() {
             performOptionalsSelection($("#" + pizzaMenu.getAllToppingsInTheMenu()[index].getId()), PIZZA_TOPPINGS_SELECTOR);
         });
@@ -103,7 +110,6 @@ $(document).ready(function() {
 
     /*set to #pizza toppings children elements an event handler*/
     $(PIZZA_CHEESE_SELECTOR).children().each(function(index, item) {
-
         $("#" + pizzaMenu.getAllCheesesInTheMenu()[index].getId()).click(function() {
             performOptionalsSelection($("#" + pizzaMenu.getAllCheesesInTheMenu()[index].getId()), PIZZA_CHEESE_SELECTOR);
         });
@@ -130,44 +136,46 @@ $(document).ready(function() {
     });
 });
 
+//Load all objects into the page. It uses Handlebars templates.
+function loadDataToPage(selector, objects, template_selector){
+
+    //Get the reusable template in the checkout page
+    //uses Handlebars as template engine
+    let template = $(template_selector).html();
+    let compiledTemplate = Handlebars.compile(template);
+
+    let html="";
+
+    //getSimpleSerializableObject
+    for(let i=0; i<objects.length;i++){
+        //generate n lines, according to the userBasket size, using the template
+        let object = objects[i].getSimpleSerializableObject();
+        html += compiledTemplate(object);
+    }
+
+    $(selector).html(html);
+
+}
 
 /*
-    Set all pizza data in the page.
+ * Update all prices on the screen. Method invoked whenever the user select a
+ * different pizza size.
+ *  categorySelector - The category to update the price: Flavours, Toppings, cheeses
+ *  objects - The objects list having all items to update the price
+ *  basePriceMultiplier - The price adjust factor
+ */
+function updatePriceOnScreen(categorySelector, objects, basePriceMultiplier){
 
-    selector - the html selector name
-    object - Object[]: Pizzas, Toppings or Cheeses
-    pizzaSize - PizzaSize object
-
-*/
-function loadPizzaDataToPage(selector, object, pizzaSize) {
-
-    $(selector).each(function(index, item) {
-
+    $(categorySelector).each(function(index, item) {
         $(item).children().each(function(index, item) {
 
-            //set the image id value
-            $(item).prop("id", object[index].getId());
-
-            //set the image child element
-            $(item).find("img").prop("src", object[index].getImageURL());
-            $(item).find("img").prop("alt", object[index].getName() + ":" + object[index].getDescription());
-            $(item).find("img").prop("title", object[index].getDescription());
-
-            //Set the figcaption name and price
-            $(item).find("figcaption").children().first().html(object[index].getName());
-
-            //update the itens price
+            //update the item price
             let price = 0;
-            if(pizzaSize == null) {
-                //The page load for the first time
-                price = object[index].getPrice();
-            }else{
-                //the user select a different pizza size
-                price = object[index].getPrice() * pizzaSize.getBasePriceMultiplier();
-                price = Number(price).toFixed(2);
-            }
+            price = (objects[index].getSimpleSerializableObject(basePriceMultiplier)).price;
+            price = Number((price).toFixed(2));
             //insert the object prince into a figcaption element
-            $(item).find("figcaption").children().next().html("<span>$</span><span>" + price + "</span>");
+            $(item).find("figcaption").children().next().html("<span>$" + price + "</span>");
+
         });
     });
 }
@@ -181,10 +189,10 @@ function performPizzaSizeSelection(elementId, subGroup) {
     //insert selected pizza data size into the customPizza object
     setCustomPizza(elementId, subGroup);
 
-    //Update all princes into the page, once the user selected another pizza size
-    loadPizzaDataToPage(PIZZA_FLAVOUR_SELECTOR, pizzaMenu.getAllPizzasInTheMenu(), customPizza.getPizzaSize());
-    loadPizzaDataToPage(PIZZA_TOPPINGS_SELECTOR, pizzaMenu.getAllToppingsInTheMenu(), customPizza.getPizzaSize());
-    loadPizzaDataToPage(PIZZA_CHEESE_SELECTOR, pizzaMenu.getAllCheesesInTheMenu(), customPizza.getPizzaSize());
+    //Update all prices into the page, whenever the user selected another pizza size
+    updatePriceOnScreen( PIZZA_FLAVOUR_SELECTOR, pizzaMenu.getAllPizzasInTheMenu(), customPizza.getPizzaSize().getBasePriceMultiplier());
+    updatePriceOnScreen( PIZZA_TOPPINGS_SELECTOR, pizzaMenu.getAllToppingsInTheMenu(), customPizza.getPizzaSize().getBasePriceMultiplier());
+    updatePriceOnScreen( PIZZA_CHEESE_SELECTOR, pizzaMenu.getAllCheesesInTheMenu(), customPizza.getPizzaSize().getBasePriceMultiplier());
 
     //reset the amount in the basket
     resetBasketAmount();
@@ -192,8 +200,6 @@ function performPizzaSizeSelection(elementId, subGroup) {
 
     //enable to select a flavour
     $( "#Step2" ).removeClass("ui-state-disabled");
-
-
 
 }
 

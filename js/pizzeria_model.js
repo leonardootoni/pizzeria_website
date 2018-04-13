@@ -24,7 +24,15 @@ class PizzaSize {
         this.getSlices = function(){return _slices;}
         this.setBasePriceMultiplier = function(basePriceMultiplier){_basePriceMultiplier = basePriceMultiplier;}
         this.getBasePriceMultiplier = function(){return _basePriceMultiplier;}
+        this.getSimpleSerializableObject = function(){
 
+            let obj = new Object();
+            obj.id = this.getId();
+            obj.name = this.getName();
+            obj.slices = this.getSlices();
+            obj.basePriceMultiplier = this.getBasePriceMultiplier();
+            return obj;
+        }
     }
 }
 
@@ -43,11 +51,21 @@ class Pizza {
         this.setName = function(name){_name = name;}
         this.getName = function(){return _name;}
         this.setPrice = function(price){_price = Number(price);}
-        this.getPrice = function(){return _price;}
+        this.getPrice = function(){return Number(_price);}
         this.setImageURL = function(imageURL){_imageURL = imageURL;}
         this.getImageURL = function(){return _imageURL;}
         this.setDescription = function(description){_description = description;}
         this.getDescription = function(){return _description;}
+        this.getSimpleSerializableObject = function(basePriceMultiplier){
+
+            let obj = new Object();
+            obj.id = this.getId();
+            obj.name = this.getName();
+            obj.description = this.getDescription();
+            obj.price = Number((this.getPrice() * basePriceMultiplier).toFixed(2));
+            obj.imageURL = this.getImageURL();
+            return obj;
+        }
 
     }
 
@@ -71,9 +89,20 @@ class Topping {
         this.setDescription = function(description){_description = description;}
         this.getDescription = function(){return _description;}
         this.setPrice = function(price){_price = Number(price);}
-        this.getPrice = function(){return _price;}
+        this.getPrice = function(){return Number(_price);}
         this.setImageURL = function(imageURL){_imageURL = imageURL;}
         this.getImageURL = function(){return imageURL;}
+        this.getSimpleSerializableObject = function(basePriceMultiplier){
+
+            let obj = new Object();
+            obj.id = this.getId();
+            obj.name = this.getName();
+            obj.description = this.getDescription();
+            obj.price = Number((this.getPrice() * basePriceMultiplier).toFixed(2));
+            obj.imageURL = this.getImageURL();
+            return obj;
+        }
+
 
     }
 }
@@ -96,9 +125,19 @@ class Cheese {
         this.setDescription = function(description){_description = description;}
         this.getDescription = function(){return _description;}
         this.setPrice = function(price){_price = Number(price);}
-        this.getPrice = function(){return _price;}
+        this.getPrice = function(){return Number(_price);}
         this.setImageURL = function(imageURL){_imageURL = imageURL;}
         this.getImageURL = function(){return imageURL;}
+        this.getSimpleSerializableObject = function(basePriceMultiplier){
+
+            let obj = new Object();
+            obj.id = this.getId();
+            obj.name = this.getName();
+            obj.description = this.getDescription();
+            obj.price = Number((this.getPrice() * basePriceMultiplier).toFixed(2));
+            obj.imageURL = this.getImageURL();
+            return obj;
+        }
     }
 }
 
@@ -492,12 +531,12 @@ function savePizzaIntoTheBasket(customPizza){
 
     //console.log(userBasket);
 
-    //stringify the simple object before to put It in the session
+    //stringify the simple object before release It in the user session
     sessionStorage.setItem(USER_CUSTOM_PIZZA_BASKET, JSON.stringify(userBasket));
 
 }
 
-//Recover the userBasket and returns a customPizza[]
+//Recover the userBasket and returns a userBasket[]
 function getUserBasket(){
 
     //recover the userBasket from the session.
