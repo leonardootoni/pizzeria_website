@@ -20,6 +20,7 @@
 
     <script src="../js/master.js" type="text/javascript"></script>
 
+    <script src="../js/external/handelbars/handlebars-v4.0.11.js"></script>
     <script src="../js/external/jquery/jquery.js"></script>
     <script src="../js/jquery-ui.min.js"></script>
 
@@ -73,186 +74,20 @@
                 <div id="accordion">
                     <h3 id="Step1">Step 1 - Select a size</h3>
                     <div id="pizza-sizes">
-                        <figure id="pizza-small" class="figure-unselected">
-                            <img src="../images/mount_your_pizza/pizza_draw@0.5x.png" alt="Pizza Size: Small" width="172" height="172">
-                            <figcaption>
-                                <h5>SMALL</h5>
-                                <h5>6x <img src="../images/mount_your_pizza/pizza-slice-1.png" alt="Slices" width="20" height="20"></h5>
-                            </figcaption>
-                        </figure>
-                        <figure id="pizza-medium" class="pizza-size figure-unselected">
-                            <img src="../images/mount_your_pizza/pizza_draw@0.5x.png" alt="Pizza Size: Medium" width="172" height="172">
-                            <figcaption>
-                                <h5>MEDIUM</h5>
-                                <h5>8x <img src="../images/mount_your_pizza/pizza-slice-1.png" alt="Slices" width="20" height="20"></h5>
-                            </figcaption>
-                        </figure>
-                        <figure id="pizza-large" class="pizza-size figure-unselected">
-                            <img src="../images/mount_your_pizza/pizza_draw@0.5x.png" alt="Pizza Size: Large" width="172" height="172">
-                            <figcaption>
-                                <h5>LARGE</h5>
-                                <h5>10x <img src="../images/mount_your_pizza/pizza-slice-1.png" alt="Slices" width="20" height="20"></h5>
-                            </figcaption>
-                        </figure>
-                        <figure id="pizza-x-large" class="pizza-size figure-unselected">
-                            <img src="../images/mount_your_pizza/pizza_draw@0.5x.png" alt="Pizza Size: X Large" width="172" height="172">
-                            <figcaption>
-                                <h5>X-LARGE</h5>
-                                <h5>12x<img src="../images/mount_your_pizza/pizza-slice-1.png" alt="Slices" width="20" height="20"></h5>
-                            </figcaption>
-                        </figure>
+                        <!-- FILLED BY TEMPLATE ENGINE -->
                     </div>
                     <h3 id="Step2">Step 2 - Select a flavour</h3>
                     <div id="pizza-flavour-options">
-                        <!-- META DESCRIPTORS PROPERTIES FILLED BY JAVASCRIPT -->
-                        <figure class="pizza-flavor figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="pizza-flavor figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="pizza-flavor figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="pizza-flavor figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="pizza-flavor figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="pizza-flavor figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="pizza-flavor figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="pizza-flavor figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
+                        <!-- FILLED BY TEMPLATE ENGINE -->
+
                     </div>
                     <h3 id="Step3">Step 3 - Select extra toppings</h3>
                     <div id="pizza-toppings-options">
-                        <!-- META DESCRIPTORS PROPERTIES FILLED BY JAVASCRIPT -->
-                        <figure class="figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
+                        <!-- FILLED BY TEMPLATE ENGINE -->
                     </div>
                     <h3 id="Step4">Step 4 - Select extra cheese</h3>
                     <div id="pizza-cheese-options">
-                        <!-- META DESCRIPTORS PROPERTIES FILLED BY JAVASCRIPT -->
-                        <figure class="figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
-                        <figure class="figure-unselected">
-                            <img src="#" alt="#" width="169" height="132">
-                            <figcaption>
-                                <h5></h5>
-                                <h5></h5>
-                            </figcaption>
-                        </figure>
+                        <!-- FILLED BY TEMPLATE ENGINE -->
                     </div>
                 </div>
                 <div>
@@ -316,8 +151,49 @@
         <div>Annonymous Team</div>
     </footer>
 
+    <!-- Handlebars Reusable templates -->
+    <!-- pizzaSize template -->
+    <script id="pizza-size-elements" type="text/x-handlebars-template">
+        <figure id="{{id}}" class="pizza-size figure-unselected">
+            <img src="../images/mount_your_pizza/pizza_draw@0.5x.png" alt="Pizza Size: {{name}}" width="172" height="172">
+            <figcaption>
+                <h5>{{name}}</h5>
+                <h5>{{slices}}x<img src="../images/mount_your_pizza/pizza-slice-1.png" alt="Slices" width="20" height="20"></h5>
+            </figcaption>
+        </figure>
+    </script>
 
+    <!-- pizzaFlavour template -->
+    <script id="pizza-flavour-elements" type="text/x-handlebars-template">
+        <figure id="{{id}}" class="pizza-flavor figure-unselected">
+            <img src="{{imageURL}}" alt="{{name}}:{{description}}" title="{{description}}" width="169" height="132">
+            <figcaption>
+                <h5>{{name}}</h5>
+                <h5><span>${{price}}</span></h5>
+            </figcaption>
+        </figure>
+    </script>
 
+    <!-- pizzaToppings template -->
+    <script id="pizza-toppings-elements" type="text/x-handlebars-template">
+        <figure id="{{id}}" class="figure-unselected">
+            <img src="{{imageURL}}" alt="{{name}}:{{description}}" title="{{description}}" width="169" height="132">
+            <figcaption>
+                <h5>{{name}}</h5>
+                <h5><span>${{price}}</span></h5>
+            </figcaption>
+        </figure>
+    </script>
+
+    <!-- pizzaCheeses template -->
+    <script id="pizza-cheeses-elements" type="text/x-handlebars-template">
+        <figure id="{{id}}" class="figure-unselected">
+            <img src="{{imageURL}}" alt="{{name}}:{{description}}" title="{{description}}" width="169" height="132">
+            <figcaption>
+                <h5>{{name}}</h5>
+                <h5><span>${{price}}</span></h5>
+            </figcaption>
+        </figure>
+    </script>
 </body>
-
 </html>
