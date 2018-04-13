@@ -18,7 +18,7 @@ var menu_HTML = {
         "Nutritional Guide":"/pages/nutritional_guide.html",
         "Email Offers":"/pages/email_offers.html",
         "Locations":"/pages/locations.html",
-        "Carreers":"/pages/carreers.html",
+        "Careers":"/pages/careers.html",
         "Services":"/pages/services.html",
         "About Us":"/pages/about_us.html",
         "Contact Us":"/pages/contactus.html"
