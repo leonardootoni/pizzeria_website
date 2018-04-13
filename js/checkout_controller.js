@@ -38,14 +38,12 @@ $(document).ready(function() {
 
 });
 
-
+//Load the user basket and show the result set using Handlebars templates.
 function loadUserBasket(){
 
     try{
         userBasket = null;
         userBasket = getUserBasket();
-        console.log(" *** Basket loaded ***");
-        console.log(userBasket);
     }catch (e) {
         log.error(e);
         return;
@@ -100,9 +98,6 @@ function buttonDispatcher(buttonId){
         console.error("BUTTON_NOT_IDENTIFIED");
         return;
     }
-
-
-
 
 }
 
