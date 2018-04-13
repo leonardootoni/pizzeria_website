@@ -85,7 +85,7 @@
     </div>
 
     <fieldset>
-    <form id="account" name="account" action="sigh.php" method="get">
+    <form id="account" name="account" method="get">
         <h1>Email</h1>
         E-Mail: <input type="email" name="email" size="35"
                        id="mail" /><span style="color:red;" id="errmail" ></span><br />
@@ -95,6 +95,10 @@
         <br/>
         <input type="button" value="Reset" id="reset" onclick="resetform()"/>
         <input type="button" value="Submit" id="submit" onclick="validate()"/>
+        <br>
+        <br>
+        <br>
+        <input type="button" onclick="location.href='../pages/unsubscribe.html';" value="Unsubscribe" />
     </form>
     </fieldset>
 </main>
