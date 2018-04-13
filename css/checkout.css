@@ -113,3 +113,7 @@ input[value="Remove Item"]{
     font-family: 'Roboto', sans-serif;
     font-size: 0.83em;
 }
+
+.all-columns{
+    min-height: 37em;
+}
