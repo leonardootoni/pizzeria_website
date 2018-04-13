@@ -1,0 +1,54 @@
+.main-container{
+
+    width:1366px;
+    height:400px;
+    background-color: #fffcf8;
+    border-radius: 8px;
+}
+.root-container{
+    padding-top: 25px;
+}
+#detail{
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
+}
+#pizzeria {
+    font-style: italic;
+    color: #1d8c28;
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+th{
+
+    text-align: right;
+}
+td{
+    margin-left: 5em;
+}
+table{
+    margin-left: 20em;
+}
+.fields{
+    margin-left:5px;
+    width: 340px;
+    border-radius: 4px;
+    padding-top: 5px;
+}
+fieldset{
+    border-style: double;
+    border-radius: 3px;
+    margin: 0px 20px;
+    box-shadow: 2px 0px 10px 0px rgba(190,188,185,0.35);
+}
+.req{
+    color: red;
+}
+#buttons{
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 170px;
+}
+.error-summary{
+    height: 50px;
+}
