@@ -17,7 +17,7 @@ body {
                         "footer";
 
     /*Center the website*/
-    max-width: 1320px;
+    max-width: 1320px !important;
     grid-row-gap: 8px; /*Default spacing between the grid cells*/
 }
 
@@ -52,7 +52,7 @@ footer {
 
 html {
     /*forces the vertical scroll bar to appear ever*/
-    overflow-y: scroll;
+    overflow-y: scroll !important;
 }
 
 body {
