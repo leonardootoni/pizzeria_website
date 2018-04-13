@@ -8,11 +8,13 @@
     <link rel="icon" type="image/png" href="../images/favicon.png"/>
     <!--Main css file for all website -->
     <link rel="stylesheet" href="../css/base_layout.css" type="text/css">
+    <link rel="stylesheet" href="../css/promo.css" type="text/css">
     <!-- General fonts to website-->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- Generic JS file to the website -->
     <script src="../js/master.js" type="text/javascript"></script>
+    <script src="../js/prm.js" type="text/javascript"></script>
 
     <!--specific css for the page goes here -->
     <!--link rel="stylesheet" href="../css/name_page.css" type="text/css"-->
@@ -55,50 +57,46 @@
         Promo
     </div>
     <h1>Coupons</h1>
-    <img class="two-columns-left content centre-content" src="..\images\promo\coupon1.png"
-         alt="This is Coupon 1">
-    </img>
-    <div class="content">
-        <img class="centre-img small-img" src="..\images\promo\coupon1.png"
-             alt="This is Coupon 2">
+    <div id="showContainer">
+
+        <div class="imageContainer" id="im_1">
+            <img src="../images/promo/coupon1.png" />
+            <div class="caption">
+                Coupon 1
+            </div>
+        </div>
+
+        <div class="imageContainer" id="im_2">
+            <img src="../images/promo/coupon2.jpg" />
+            <div class="caption">
+                Coupon 2
+            </div>
+        </div>
+
+        <div class="imageContainer" id="im_3">
+            <img src="../images/promo/coupon3.jpg" />
+            <div class="caption">
+                Coupon 3
+            </div>
+        </div>
+
+        <div class="navButton" id="previous">&#10094;</div>
+        <div class="navButton" id="next">&#10095;</div>
     </div>
+
     <fieldset>
     <form id="account" name="account" action="sigh.php" method="get">
         <h1>Email</h1>
-        E-Mail: <input type="email" name="email"
-                       id="mail" /><span style="color:red;" id="errmail"></span><br />
-        Phone Number: <input type="number" name="phone"
+        E-Mail: <input type="email" name="email" size="35"
+                       id="mail" /><span style="color:red;" id="errmail" ></span><br />
+        <br>
+        Phone Number: <input type="number" name="phone" size="45"
                              id="phn" /><span style="color:red;" id="errphn"></span><br />
         <br/>
         <input type="button" value="Reset" id="reset" onclick="resetform()"/>
         <input type="button" value="Submit" id="submit" onclick="validate()"/>
     </form>
     </fieldset>
-    <script>
-        function validate() {
-            var mail = document.getElementById('mail').value;
-            var phn = document.getElementById('phn').value;
-
-            var pattern1 = /^[a-zA-Z0-9]{2,50}$/
-            if(mail == ''){
-                document.getElementById('errmail').innerHTML = "Please enter Email";
-            }else {
-                document.getElementById('errmail').innerHTML = "Email is valid";
-            }
-
-            var pattern3 = /^[0-9]{2,10}$/
-            if(phn == ''){
-                document.getElementById('errphn').innerHTML = "Please enter Phone Number";
-            } else {
-                document.getElementById('errphn').innerHTML = "Phone Number is valid";
-            }
-            alert("Registered");
-        }
-        function resetform() {
-            document.getElementById('mail').value = '';
-            document.getElementById('phn').value = '';
-        }
-    </script>
 </main>
 </body>
 <!-- The footer section needs to repeat in each website's page -->
