@@ -1,7 +1,6 @@
 .checkout_content{
     display: grid;
     grid-template-columns: 9fr 3fr;
-
 }
 
 .checkout_list_items{
@@ -23,9 +22,7 @@
     display: grid;
     grid-template-columns: 2fr 5fr 2fr;
 
-
 }
-
 
 .flex-element{
     display: flex;
