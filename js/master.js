@@ -1,6 +1,6 @@
 /*******************************************************************************
-    Although some pages uses jQuery, this master.js file uses only Vanilla JS
-    to guarantee compatibility in any page whithout requires to import jQuery.
+    Master WEBSITE's JS file. All common routines are saved into this file,
+    once it will be imported to all pages.
 ********************************************************************************
 Author: *** Leonardo Otoni de Assis ***
 *******************************************************************************/
@@ -52,8 +52,6 @@ function  generateMenuHTML(){
         menuItem.href = menu_HTML[menuItem.text];
 
     }
-
-
 
 }
 //Exhibit the shopping cart icon on the website header whenever the customer add
