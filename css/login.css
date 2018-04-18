@@ -57,3 +57,16 @@ form > div > span {
     justify-content: center;
     align-content: space-around;
 }
+
+#login_icon{
+    display: flex;
+    justify-content: center;
+}
+
+#login_icon > figure{
+    margin:0;
+}
+
+#login_icon > figure > img{
+    height: 50px;
+}
