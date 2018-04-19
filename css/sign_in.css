@@ -1,0 +1,68 @@
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.form_element{
+    margin-bottom: 1em;
+}
+
+
+form > div > span {
+    padding-left: .3em;
+    background-color: inherit;
+
+    color: #e73827;
+    font-weight: bold;
+}
+
+label{
+    background-color: inherit;
+    color: darkgreen;
+    font-weight: bold;
+}
+
+input{
+    font-size: .7em;
+
+}
+
+.error-msg {
+    display: none;
+    color: #e73827;
+    background-color: pink;
+    list-style-type: none;
+    font-weight: bold;
+    border: 1px solid #e73827;
+}
+
+.success-msg {
+    display: none;
+    color: RoyalBlue ;
+    background-color: LightSkyBlue;
+    list-style-type: none;
+    font-weight: bold;
+    border: 1px solid RoyalBlue;
+}
+
+
+.parsley-errors-list, filled{
+    display: block;
+    padding: 0;
+    margin: 0;
+    color: #e73827;
+    background-color: inherit;
+    list-style-type: none;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/*override the modal button position, to the center*/
+.modal-body>div{
+    display: flex;
+    justify-content: center;
+}
+
+.modal-body>div>input[type="button"]{
+    width: 8em;
+}

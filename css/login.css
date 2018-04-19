@@ -1,0 +1,72 @@
+.all-columns{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 32em;
+    padding-top: 3em;
+
+}
+
+form{
+    background: linear-gradient(to right, #5BAB3A, #2D9810);
+    background-color: inherit;
+    color: inherit;
+    border-radius: 8px;
+    padding: 35px 15px;
+    border: 3px solid #fff;
+}
+
+form > label {
+    color: #fff;
+    background-color: transparent;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+form > div > span {
+    padding-left: .3em;
+    background-color: inherit;
+
+    color: #e73827;
+    font-weight: bold;
+}
+
+.child{
+    padding-left: 10px;
+    padding-bottom: 15px;
+}
+
+.error-msg{
+    display: none;
+    padding: 4px;
+    color: #e73827;
+    background-color: pink;
+    border: 1px solid red;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.green-button{
+    width: 11em;
+}
+
+.child-buttons{
+    padding-top: .5em;
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+}
+
+#login_icon{
+    display: flex;
+    justify-content: center;
+}
+
+#login_icon > figure{
+    margin:0;
+}
+
+#login_icon > figure > img{
+    height: 50px;
+}

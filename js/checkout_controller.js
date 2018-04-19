@@ -20,7 +20,11 @@ const REMOVE_BUTTON = "#remove-button-";
 const AMOUNT_FIELD = "#amount-field-";
 
 const PIZZA_ADD_ORDER_BUTTON    = "#add-order-button";
+const PROCEED_CHECKOUT_BUTTON = "#btn-proceed-checkout";
 const HTML_DISABLE = "disabled";
+
+//url path redirection
+const URL_LOGIN  = window.location.protocol + "//" + window.location.host + "/pages/login.html";
 
 //Error messages
 const BUTTON_NOT_IDENTIFIED = "Error: Action not identified.";
@@ -35,6 +39,12 @@ $(document).ready(function() {
 
     //recover the userBasket from the model
     loadUserBasket();
+
+    /*Event handler to redirect the user to the login page*/
+    $(PROCEED_CHECKOUT_BUTTON).click(function() {
+        $(window).attr('location', URL_LOGIN);
+    });
+
 
 });
 
@@ -160,7 +170,7 @@ function removeItem(elementId){
     }else{
         //Reset the final price and disable the purchase button
         $(PIZZA_FINAL_PRICE_SELECTOR).html("");
-        $(PIZZA_ADD_ORDER_BUTTON).attr(HTML_DISABLE, "");
+        $(PROCEED_CHECKOUT_BUTTON).attr(HTML_DISABLE, "");
     }
 
     //update the information into the model and re-load the information on the

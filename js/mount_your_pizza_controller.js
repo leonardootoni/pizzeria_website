@@ -127,12 +127,12 @@ $(document).ready(function() {
 
     /*Handle the action when the user decide to buy more items*/
     $(BUY_MORE_BUTTON).click(function() {
-        redirectToPage(BUY_MORE_BUTTON);
+        $(window).attr('location', URL_BUY_MORE_PIZZAS);
     });
 
     /*Handle the action when the user decide to buy more items*/
     $(PROCEED_CHECKOUT_BUTTON).click(function() {
-        redirectToPage(PROCEED_CHECKOUT_BUTTON);
+        $(window).attr('location', URL_CHECKOUT);
     });
 });
 
@@ -368,18 +368,4 @@ function addPizzaIntoTheBasket(){
     //Show modal popup to the user questioning wich path do follow
     $(MODAL_POPUP).css({display: "block"});
 
-}
-
-/* Performs the page redirection according to the user's choice after to click on
-the button ADD TO CART */
-function redirectToPage(action){
-
-    if(action==BUY_MORE_BUTTON){
-        $(window).attr('location', URL_BUY_MORE_PIZZAS);
-    }else if (action == PROCEED_CHECKOUT_BUTTON){
-        $(window).attr('location', URL_CHECKOUT );
-    }else{
-        console.error("mount_your_pizza_controller.redirectToPage error: action " + action + " not specified");
-        throw "mount_your_pizza_controller.redirectToPage error: action " + action + " not specified";
-    }
 }
