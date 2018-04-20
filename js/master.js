@@ -20,7 +20,7 @@ var menu_HTML = {
         "Locations":"/pages/locations.html",
         "Careers":"/pages/careers.html",
         "Services":"/pages/services.html",
-        "About Us":"/pages/about_us.html",
+        "About Us":"/pages/aboutus.html",
         "Contact Us":"/pages/contactus.html"
 };
 
