@@ -44,7 +44,7 @@
             <li tabindex="5"><a href="#" class="menu-button">Nutritional Guide</a></li>
             <li tabindex="6"><a href="#" class="menu-button">Email Offers</a></li>
             <li tabindex="7"><a href="#" class="menu-button">Locations</a></li>
-            <li tabindex="8"><a href="#" class="menu-button">Careers</a></li>
+            <li tabindex="8"><a href="#" class="menu-button">Carreers</a></li>
             <li tabindex="9"><a href="#" class="menu-button">Services</a></li>
             <li tabindex="10"><a href="#" class="menu-button">About Us</a></li>
             <li tabindex="11"><a href="#" class="menu-button">Contact Us</a></li>
@@ -55,47 +55,59 @@
             Email Offers
         </div>
 
-        <div class="content all-columns main-container">
+        <div class="all-columns" id="main-container">
             <p id="detail">By signing up for pizzeria mail,you will be the first to hear about the terrific offers,promotions and news rendered by <span id="pizzeria">Pizzeria</span> through mail</p>
             <hr>
 
             <div class="root-container">
 
                 <fieldset>
-                    <legend></legend>
-                    <form>
-                        <div class="error-summary"></div>
+                    <legend>Register</legend>
+                    <form id="mailForm">
+                        <div class="error-summary" title="Error message summary.">
+
+                            <span class="name-invalid" id="generr"></span><br>
+                            <span class="mail-invalid" id="mailerr"></span>
+                        </div>
                         <hr>
                         <table>
                             <tr>
                                 <th>
-                                    <label class="labl" for="Name"><span class="req">*</span>E-mail:</label>
+                                    <label class="labl" for="Name">Name:</label>
                                 </th>
                                 <td class="fields">
-                                    <input type="text" class="fields" id="Name"  placeholder="Enter your Name." maxlength="30">
+                                    <span class="req">*</span>
+                                    <input type="text" class="fields" id="Name"  title="Enter your full name."  maxlength="30" >
                                 </td>
+
                             </tr>
                                 <tr>
                                     <th>
-                                        <label class="labl" for="Email"><span class="req">*</span>E-mail:</label>
+                                        <label class="labl" for="Email">E-mail:</label>
                                     </th>
                                     <td class="fields">
-                                        <input type="text" class="fields" id="Email"  placeholder="Enter your Email." maxlength="30" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                                        <span class="req">*</span>
+                                        <input type="text" class="fields" id="Email"  title="Enter your email." placeholder="Enter your Email." maxlength="30" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                                     </td>
+
+
                                 </tr>
                                 <tr>
                                     <th>
-                                        <label class="labl" for="CEmail"><span class="req">*</span>Confirm E-mail:</label>
+                                        <label class="labl" for="CEmail">Confirm E-mail:</label>
                                     </th>
                                     <td class="fields">
-                                        <input type="text" class="fields" id="CEmail"  placeholder="Enter your Email." maxlength="30" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                                        <span class="req">*</span>
+                                        <input type="text" class="fields" id="CEmail"  title="Enter mail to confirm." placeholder="Enter your Email." maxlength="30" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+
                                     </td>
+
                                 </tr>
                                 <tr>
                                     <td colspan="2" id="buttons">
-                                       <input type="button" id="submit" value="Register for offers">
-                                        <a href="menu.html"><input type="button" value="cancel" ></a>
-                                        <input type="reset" value="clear">
+                                        <input type="submit"  class="submit" value="Register for offers">
+                                        <a href="menu.html"><input type="button" class="btn" value="cancel" ></a>
+                                        <input type="reset" class="btn" id="reset" value="clear">
                                     </td>
 
                                 </tr>
@@ -108,7 +120,7 @@
 
 
     </main>
-    <script src="../js/loc-script.js">
+    <script src="../js/emailoffers.js">
       </script>
     <!-- The footer section needs to repeat in each website's page -->
     <footer>
