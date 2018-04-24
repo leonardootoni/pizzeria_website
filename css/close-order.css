@@ -1,0 +1,80 @@
+.all-columns{
+    min-height: 32em;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.flex-element-left{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.flex-element-center{
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+
+.element {
+    margin: 1em 0em;
+}
+
+input ~ figure{
+    margin: 1em;
+}
+
+/*not display the item on the screen. However, keep the element in the html for
+accessibility purposes*/
+.display-none{
+    display: none;
+}
+
+#credit-card-expiration-month{
+    width: 22em;
+    height: 2em;
+}
+
+#credit-card-expiration-year{
+    width: 08em;
+    height: 2em;
+}
+
+span {
+    padding-left: .3em;
+    background-color: inherit;
+
+    color: #e73827;
+    font-weight: bold;
+}
+
+label{
+    background-color: inherit;
+    color: darkgreen;
+    font-weight: bold;
+}
+
+input{
+    font-size: .7em;
+
+}
+
+.parsley-errors-list, filled{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    color: #e73827;
+    background-color: inherit;
+    list-style-type: none;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.display-none-element{
+    display: none;
+}
