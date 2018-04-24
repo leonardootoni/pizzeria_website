@@ -561,3 +561,10 @@ function updateUserBasket(userBasket){
     }
 
 }
+
+//Method called from close-order-controller page. This method erase the user basket
+function removeUserBasket(){
+
+    sessionStorage.removeItem(USER_CUSTOM_PIZZA_BASKET);
+
+}

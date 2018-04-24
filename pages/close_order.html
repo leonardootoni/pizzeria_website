@@ -14,7 +14,24 @@
     <!-- Generic JS file to the website -->
     <script src="../js/master.js" type="text/javascript"></script>
     <!--specific css for the page goes here -->
-    <!--link rel="stylesheet" href="../css/name_page.css" type="text/css"-->
+    <link rel="stylesheet" href="../css/close-order.css" type="text/css">
+
+    <script src="../js/external/jquery/jquery.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+
+    <!-- parsley validator -->
+    <script src="../js/external/parsley/parsley.js"></script>
+
+    <!-- jquery mask plugin -->
+    <script src="../js/external/jquery-mask-plugin/jquery.mask.min.js"></script>
+
+    <script src="../js/external/handelbars/handlebars-v4.0.11.js"></script>
+
+    <!--Business classes, controller and datasets-->
+    <script src="../js/pizzeria_model.js"></script>
+    <script src="../js/user_model.js"></script>
+    <script src="../js/close-order-controller.js"></script>
+
 </head>
 <body>
     <!-- the header and nav sections needs to repeat in each website's page -->
@@ -50,11 +67,93 @@
         </ul>
     </nav>
     <main>
-        <div class="content title-page">
+        <div id="title-page" class="content title-page">
             Inform The Credit Card data to finish your order.
         </div>
         <div class="content all-columns">
-            CONTENT TO BE DEVELOPED!!!
+            <form id="credit-card-form" class="credit-card-container">
+                <div>
+                    <div class="flex-element-left">
+                        <input type="radio" id="visa-card" name="credit-card-flag" value="visa" checked>
+                        <figure>
+                            <img src="../images/visa.png" alt="Visa Credit Card Flag" title="Visa Credit Card Flag" width="60" height="38">
+                            <figcaption class="display-none">Visa Credit Card</figcaption>
+                        </figure>
+
+                        <input type="radio" id="mastercard-card" name="credit-card-flag" value="mastercard">
+                        <figure>
+                            <img src="../images/mastercard.png" alt="Mastercard Credit Card Flag" title="Mastercard Credit Card Flag" width="60" height="38">
+                            <figcaption class="display-none">Mastercard Credit Card</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div></div>
+                <div></div>
+                <div>
+                    <div class="element">
+                        <span>*</span>
+                        <label for="credit-card-name">Name (as appears on your card):</label><br>
+                        <input type="text" id="credit-card-name" size="50" title="Please inform the name as It appears on your card." required>
+                    </div>
+                </div>
+                <div>
+                    <div class="element">
+                        <span>*</span>
+                        <label for="credit-card-number">Credit Card Number:</label><br>
+                        <input type="text" id="credit-card-number" size="50" title="Please inform the Credit Card Number." required minlength="19" data-parsley-error-message="You must enter a valid 16 card number.">
+                    </div>
+                </div>
+                <div>
+                    <div class="element">
+                        <span>*</span>
+                        <label for="credit-card-security-code">Security Code:</label><br>
+                        <input type="text" id="credit-card-security-code" size="10" title="Please inform the Security Code." required minlength="3" data-parsley-error-message="Inform the 3 digit code.">
+                    </div>
+                </div>
+                <div>
+                    <div class="element">
+                        <span>*</span>
+                        <label for="credit-card-expiration-month">Expiration Month:</label><br>
+                        <select name="expiration-month" id="credit-card-expiration-month" title="Please inform the Expiration Card Month." required>
+                            <option value="">[Select]</option>
+                            <option value="01">01 - January</option>
+                            <option value="02">02 - Febuary</option>
+                            <option value="03">03 - March</option>
+                            <option value="04">04 - April</option>
+                            <option value="05">05 - May</option>
+                            <option value="06">06 - June</option>
+                            <option value="07">07 - July</option>
+                            <option value="08">08 - August</option>
+                            <option value="09">09 - September</option>
+                            <option value="10">10 - October</option>
+                            <option value="11">11 - November</option>
+                            <option value="12">12 - December</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="element">
+                        <span>*</span>
+                        <label for="credit-card-expiration-month">Expiration Year:</label><br>
+                        <select name="expiration-year" id="credit-card-expiration-year" title="Please inform the Expiration Card Year." required>
+                            <option value="">[Select]</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="element">
+                     <input type="button" id="make-payment" class="green-button" value="Make Payment" title="Click to perform the payment.">
+                </div>
+            </form>
+            <div id="closed-order-message" class="display-none-element">
+
+            </div>
         </div>
     </main>
     <!-- The footer section needs to repeat in each website's page -->
@@ -63,5 +162,19 @@
         <div>ITC-5103-0NA - Web Programming and Design</div>
         <div>Annonymous Team</div>
     </footer>
+
+    <script id="closed-order-template" type="text/x-handlebars-template">
+        <div>
+            <p>
+                Dear <b>{{firstName}} {{lastName}}</b>, <br>
+                Thank you for choosing us as your pizza provider.<br>
+                Your payment was successfully processed and your order <b>{{orderId}}</b> will be processed in a few minutes.<br>
+                An email will be sent to <b>{{email}}</b> in a few minutes with all order details.<br>
+                The estimated time to deliver your order is <b>{{minutes}}</b> minutes to the address:<b>{{address}}</b>.
+                <br>
+                Thank you.
+            </p>
+        </div>
+    </script>
 </body>
 </html>

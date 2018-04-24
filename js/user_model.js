@@ -64,12 +64,17 @@ function setAuthenticatedUserIntoSession(email){
     sessionStorage.setItem(USER_AUTHENTICATED_CREDENTIAL, JSON.stringify(email));
 }
 
+//Recover the user email stored into the session
+function getAuthenticatedUserEmail(){
+    return JSON.parse(sessionStorage.getItem(USER_AUTHENTICATED_CREDENTIAL));
+}
+
 //Verify if the user is set in the session
 function isAuthenticatedUser(){
 
     //recover the userBasket from the session.
     let authenticated = false;
-    let sessionEmail = JSON.parse(sessionStorage.getItem(USER_AUTHENTICATED_CREDENTIAL));
+    let sessionEmail = getAuthenticatedUserEmail();
     if(sessionEmail != null && sessionEmail != ""){
         authenticated = true
     }
