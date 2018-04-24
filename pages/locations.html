@@ -98,41 +98,36 @@
 </script>
 
 <script id="locTmplt" type="text/html">
-
-    <div class="content gridcontianer" style="background-color:ghostwhite;border-radius: 10px;padding-left: 30px;">
-        <br>
-        {{#cities}}
+    {{#cities}}
+    <table class="spec-loc">
+        <tr>
             {{#latlng}}
-        <div class="mapimage" data-lat="{{lat}}" data-lng="{{lng}}" data-address="{{address}}" >
-            <figure>
-            <img  class="mapimg" src="https://maps.googleapis.com/maps/api/staticmap?center={{lat}},{{lng}}&zoom=15&size=320x170&markers=color:green%7Clabel:P%7C{{lat}},{{lng}}&key=AIzaSyAtK7GZx9gsxDvrFJjhsjGMgihBdFwH_P8" alt="{{address}} map" style="border-radius: 5px;">
-            <figcaption> view on map</figcaption>
-            </figure>
+            <td class="mapimage" data-lat="{{lat}}" data-lng="{{lng}}" data-address="{{address}}">
+                <img  class="mapimg" src="https://maps.googleapis.com/maps/api/staticmap?center={{lat}},{{lng}}&zoom=15&size=320x170&markers=color:green%7Clabel:P%7C{{lat}},{{lng}}&key=AIzaSyAtK7GZx9gsxDvrFJjhsjGMgihBdFwH_P8" alt="{{address}} map">
+            </td>
             {{/latlng}}
-        </div>
+            <td>
+                <div class="det">
+                    <h2>{{address}}</h2><br>
+                    <h3 class="city">{{city}}, ON, Toronto</h3>
+                    <p class="service">
+                        <b>Services : </b>{{#services}}
+                        <strong>
+                            {{.}},
+                        </strong>
+                        {{/services}}
+                        <br>
+                        <b>Timings</b> {{Timings}}
+                    </p>
+                    <br>Get direction<input type="button"  class="getdir" value="&#x2b;">
+                    <br>
+                </div>
+            </td>
 
-        <div class="det" style="padding-left: 50px">
-            <h2 >{{address}}</h2><br>
-            <h3 class="city">{{city}}, ON, Toronto</h3>
-            <p class="service">
-                Services:
-                {{#services}}
-                <strong>
-                  {{.}},
-                </strong>
-                {{/services}}
-            </p>
-            <p>Timing {{Timings}}</p>
-            <br>Get direction<input type="button"  class="getdir" value="&#x2b;" style="border-radius: 15px; background-color: #3e7327;">
-            <hr>
-            <br><br>
-        </div>
-
-        <div>
-        </div>
-
-        {{/cities}}
-    </div>
+        </tr>
+    </table>
+    <hr>
+    {{/cities}}
 
 </script>
 
