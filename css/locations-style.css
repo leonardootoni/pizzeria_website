@@ -1,158 +1,87 @@
-#modal{
-    background-color: rgba(41,43,45,0.77);
-    position: absolute;
-    top:0px;
-    left:0px;
-    width: 100%;
+.dataContainer{
+    background:rgba(0,0,0,0.95);
     height:100%;
-
-}
-#child{
+    width:100%;
     position: absolute;
-    left:470px;
-    top:240px;
+    left:0px;
+    top:0px;
+}
+
+.locations-parent{
+    height:380px;
+    overflow: auto;
+}
+.dialogBox{
     background-color: white;
+    border-radius: 3px;
+    height:250px;
     width: 400px;
-    height: 200px;
     z-index: 10;
-    border-radius: 5px;
+    box-shadow: 0px 0px 25px 5px rgba(0,0,0,1);
+    position: absolute;
+    left:430px;
+    top:240px;
 }
-#child-header > .head-text{
-    font-size: 18px;
-    padding-left: 135px;
-    font-weight: bold;
+.dialogBoxHeader{
+    background-color:darkgreen;
+    padding: 15px 0;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.dialogBoxHeader>span{
+    padding: 0px 110px;
     color: white;
-}
-#child-header{
-    background: #2D9810;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    padding-top: 10px;
-}
-#child{
-    box-shadow: 0px 0px 70px 10px rgba(0,0,0,0.5);
-    animation: fade 1s;
-}
-@keyframes fade {
-    from{top :100px;opacity: 0.3;}
-    to{bottom: 300px;opacity: 1;}
+    font-size: 1.5em;
+    letter-spacing: 1px;
 }
 
-#list li{
-    list-style: none;
+#map-container{
+    display: none;
+    position:absolute;
+    left: 0px;
+    top:0px;
+    height:100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.82);
 }
-#list li span:hover{
-    border-color: #cccccc;
+#map{
+    position: absolute;
+    width:1000px;
+    height:580px;
+    margin-left: 180px;
+    margin-top: 25px;
+    margin-right: 50px;
+}
+#map-container>span{
+    float:right;
+    padding-right: 10px;
+    background: maroon;
+    padding-left: 10px;
+    color: wheat;
+    z-index: 10;
+    font-size: 30px;
+}
+#map-container>span:hover{
     cursor: pointer;
+    color:white;
+    background:#ee0001;
 }
-#list >li span{
-
-    padding-left: 30px;
-    padding-right: 70px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    margin-left: 30px;
-    width:200px;
-    height: 20px;
-    background-color: #dadfe1;
-}
-#list >li div ul {
-    margin-top: 10px;
-    margin-left: 30px;
-    background-color: #dadfe1;
-
-}
-#list >li div ul li{
-
-    padding-top: 5.5px;
-    padding-bottom: 5.5px;
-}
-#list li>div{
-
-
-}
-#child div>input{
-    margin-right: 60px;
-    width:40px;
-    height: 43px;
-    margin-top: 6px;
-}
-#child div>input:focus,#child div>input:hover{
-    color: dodgerblue;
-    font-weight: bolder;
-}
-#list >li div ul li .element:hover{
-    color: white;
-}
-#list >li div ul li .element{
-    color: black;
-    text-decoration: none;
-}
-#list li span:focus,#list li span:hover{
-    color: white;
-    background-color:rgba(94,98,100,0.7);
-}
-#child-header #close a{
-    font-size: 16px;
-    color: white;
-    margin-left: 120px;
-    text-decoration: none;
-}
-#child-header #close a:hover,#child-header #close a:focus{
-    color: dodgerblue;
-}
-
-#child-btn{
-    margin-top: 30px;
-    float: right;
-
-}
-#list >li div ul{
-}
-#child-input{
-    margin-top: 30px;
-    float: left;
-}
-.loc-main-div{
-    height:330px;
-}
-.map-class{
-
-}
-.loc-main-div{
-    background-color: rgba(211,212,181,0.48);
-    display: block;
-    width: 1366px;
-}
-.inner1{
-    float: left;
-}
-.inner2{
-    background-color: white;
-
-    border-radius: 10px;
-    margin-top: 17px;
-    padding-top: 53px;
-    padding-bottom: 40px;
-    padding-left: 160px;
-    padding-right: 280px;
-    margin-right: 220px;
-    float: right;
-    z-index: 10;
-
-}
-.image{
-    border-radius: 5px;
-}
-.image:hover{
-    box-shadow: 0px 0px 70px 10px rgba(20,20,20,0.2);
-}
-figcaption{
-    padding-left: 110px;
-}
-.addheader{
-    font-size: 32px;
-    font-weight: bolder;
-    color:#2b2b2b;
+main h2{
+    color: #1d8c28;
     text-decoration: underline;
+
+}
+#selectBox{
+    margin-top: 50px;
+    margin-left: 100px;
+}
+#selectBox>#sele{
+    width: 200px;
+    height: 50px;
+    border-radius: 3px;
+}
+
+#selectBox>#sele:hover{
+    background-color:rgba(138,138,138,0.85);
+    color: white;
 }

@@ -1,0 +1,14 @@
+{
+  "locations":[
+    {"city":"Toronto","address":"12673  Wellesley Street","services":["Delivery","Pick up","Order online"],"Timings":":11:00AM-03:00AM","latlng":{"lat":43.6679349,"lng":-79.3707533}},
+    {"city":"Brampton","address":"8156 Country side dr","services":["Delivery","Pick up","order online"],"Timings":":11:00AM-03:00AM","latlng":{"lat":43.8138637,"lng":-79.714177}},
+    {"city":"Brampton","address":"8186 Country side dr","services":["Delivery","Pick up","order online"],"Timings":":11:00AM-03:00AM","latlng":{"lat":43.7950321,"lng":-79.6938282}},
+    {"city":"Scarborough","address":"9156 Ellesmere Rd","services":["Delivery","Pick up"],"Timings":":11:00AM-03:00AM","latlng":{"lat":43.7840144,"lng":-79.1989988}},
+    {"city":"Mississauga","address":"156 Millcreek Drive","services":["Delivery","Pick up","order online"],"Timings":":11:00AM-03:00AM","latlng":{"lat":43.5885423,"lng":-79.736633}},
+    {"city":"Barrie","address":"156 Hjk Street","services":["Delivery","Pick up","order online"],"Timings":":11:00AM-03:00AM","latlng":{"lat":44.3454469,"lng":-79.6870761}},
+    {"city":"Toronto","address":"Lawrence Ave","services":["Delivery","Pick up"],"Timings":":11:00AM-03:00AM","latlng":{"lat":43.7524439,"lng":-79.2606112}},
+    {"city":"Toronto","address":"Lawrence Ave","services":["Delivery","Pick up"],"Timings":":11:00AM-03:00AM","latlng":{"lat":43.7524439,"lng":-79.2606112}}
+  ],
+  "cityname":["Toronto","Brampton","Scarborough","Mississauga","Barrie"]
+}
+

@@ -1,82 +1,107 @@
+var cityval;
 
-var d = document.documentElement;
-var _=function (id) {
-    return document.getElementById(id)
-};
+$(function () {
+    var w=$(window).width();
+    var h=$(window).height();
+    $('.dialogBox').css("left",(w/2-200)+"px");
+    $('.dialogBox').css("top",(h/2-80)+"px");
+    $.getJSON('../data/locationsJson.json',optionFill);
 
-
-
-var storedetails = function (sCity,adress,services,url,timing,source) {
-    this.sCity=sCity;
-    this.sAddress=adress;
-    this.service=services;
-    this.mapUrl=url;
-    this.sTiming=timing;
-    this.sSrc=source;
-};
-var Toronto=new storedetails("Toronto","279 Wellesley","Pickup","https://www.google.ca/maps/@43.6681236,-79.3704017,18.37z","10:00am-11:00pm","../images/well.png");
-var Etobicoke=new storedetails("Etobicoke","123 Humber","Pickup,Delivery","https://www.google.ca/maps/@43.7298294,-79.6048928,17.6z","10:00am-11:00pm","../images/humber.png");
-var Mississauga=new storedetails("Mississauga","85687 Centerview","Pickup,Delivery","https://www.google.ca/maps/@43.5896923,-79.660578,15.86z","10:00am-11:00pm","../images/missi.png");
-
-var address=[Toronto,Etobicoke,Mississauga];
-
-window.onload=function () {
-    _('child').style.position="absolute";
-    _('child').style.left = d.clientWidth/2-200+"px";
-    _('child').style.top = d.clientHeight/2-80+"px";
-    document.querySelector("#list > li div ul").style.display="none";
-
-   var cities=["Toronto","Etobicoke","Missisauga"];
-   for(var i=0;i<cities.length;i++){
-
-   }
-};
+    console.log($('#sele').val());
 
 
-$('#selected').click(function () {
-        $("#list > li div ul").slideToggle();
+
 });
 
-function setSpan(val) {
-    _("selected").innerHTML=val;
-    _("selected").value=val;
-    $('#list > li div ul').slideToggle();
+function optionFill(data) {
+    var tarOption=$("#sele");
+    var template = $('#optionTmplt').html();
+    populate(data,template,tarOption);
 }
 
-function  set() {
-    var l = _('selected').innerHTML;
-    alert(l);
-    if(l.length <1){
-        alert("Please choose a Location");
+$("#sele").on("change",function () {
+
+    cityval=this.value;
+    $.getJSON('../data/locationsJson.json',display);
+    $('.dataContainer').fadeOut("fast");
+
+});
+
+function display(data) {
+
+    var info =data;
+    var val=cityval;
+    var array = [];
+    var collection;
+    var template2=$('#locTmplt').html();
+    var target=$('.locations-parent');
+
+    for(var i=0;i<data.locations.length;i++){
+
+        if (data.locations[i].city === val){
+
+            array.push(data.locations[i]);
+
+        }
+
     }
-    {
-
-        if (l === "Toronto") {
-            append(Toronto);
-            $('#modal').fadeOut("Fast");
-        }
-        if (l === "Etobicoke") {
-            append(Etobicoke);
-            $('#modal').fadeOut("Fast");
-        }
-        if (l === "Mississauga") {
-            append(Mississauga);
-            $('#modal').fadeOut("Fast");
-        }
-
-    }
-}
-
-function append(get){
-    var div1 = document.createElement("div");
-    var div2 = document.createElement("div");
-
-    div1.innerHTML='<div ><figure> <a href='+get.mapUrl+'><img src='+get.sSrc+' width="350px" height="=280px" class="image"></a> <figcaption>View On Map</figcaption> </figure> </div>';
-    div2.innerHTML='<div ><span class="addheader">'+get.sAddress+'</span><br><span class="addcity"><h3>'+get.sCity+'</h3></span><br><span class="addservice">Services:'+get.service+'</span><br><span class="addtime"><p>Open:'+get.sTiming+'</p></span></div>';
-    div1.setAttribute("class","inner1");
-    div2.setAttribute("class","inner2");
-
-    _("mainbody").append(div1);
-    _("mainbody").append(div2);
+    collection={"cities":array}
+    populate(collection,template2,target);
 
 }
+
+//function to display template in targeted element
+function populate(obj,temp,tar) {
+
+    var target=tar;
+    var template = temp;
+    var html = Mustache.to_html(template,obj);
+    target.append(html);
+}
+
+$(document).delegate(".mapimage","click",function () {
+    var latitude =parseFloat($(this).data("lng"));
+    var longitude=parseFloat($(this).data("lat"));
+    var address=$(this).data("address");
+    mapLoader(latitude,longitude,address);
+
+});
+
+function mapLoader(latM,lngM,address) {
+    console.log(latM);
+    console.log(lngM);
+
+    var mapTarget=document.getElementById("map");
+    var latlng = {
+        lat:lngM, lng: latM
+    };
+    var  map = new google.maps.Map(mapTarget, {
+        center: latlng,
+        zoom: 18
+    });
+    var image = '../images/logo_48.ico';
+    var marker = new google.maps.Marker({
+        position: latlng,
+        map: map,
+        icon:image
+    });
+    $('#map-container').show();
+
+    marker.addListener("click",function () {
+        var window=new google.maps.InfoWindow();
+        var data="<p><img src='../images/logo.png' height='50' width='50'><span style='font-size: 1.2em;'><b><u>Pizzeria</u></b></Span><br>"+address+"</p>";
+        window.setContent(data);
+        window.open(map,marker);
+
+    });
+
+}
+
+$('#map-container span').click(function () {
+    $('#map-container').hide("fast");
+});
+
+$(document).delegate(".getdir","click",function () {
+    alert("The directions service is currently under developement")
+});
+
