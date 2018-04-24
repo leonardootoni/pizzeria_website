@@ -1,3 +1,7 @@
+.all-columns{
+    min-height: 32em;
+}
+
 form {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
