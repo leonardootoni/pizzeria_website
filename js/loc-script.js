@@ -77,7 +77,7 @@ function mapLoader(latM,lngM,address) {
     };
     var  map = new google.maps.Map(mapTarget, {
         center: latlng,
-        zoom: 18
+        zoom: 7
     });
     var image = '../images/logo_48.ico';
     var marker = new google.maps.Marker({

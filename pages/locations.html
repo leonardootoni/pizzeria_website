@@ -56,7 +56,7 @@
     </div>
 
     <div class="all-columns" id="map-container">
-        <span>&#215</span>
+        <span>&#215;</span>
         <div id="map">
             <span>&#215</span>
         </div>
@@ -99,19 +99,20 @@
 
 <script id="locTmplt" type="text/html">
 
-    <div class="gridcontianer" style="background-color:ghostwhite;border-radius: 10px;padding-left: 30px;">
+    <div class="content gridcontianer" style="background-color:ghostwhite;border-radius: 10px;padding-left: 30px;">
         <br>
         {{#cities}}
             {{#latlng}}
-        <div class="mapimage" data-lat="{{lat}}" data-lng="{{lng}}" data-address="{{address}}">
+        <div class="mapimage" data-lat="{{lat}}" data-lng="{{lng}}" data-address="{{address}}" >
             <figure>
-            <img class="mapimg" src="https://maps.googleapis.com/maps/api/staticmap?center={{lat}},{{lng}}&zoom=15&size=320x170&markers=color:green%7Clabel:P%7C{{lat}},{{lng}}&key=AIzaSyAtK7GZx9gsxDvrFJjhsjGMgihBdFwH_P8" alt="{{address}} map" style="border-radius: 5px;">
+            <img  class="mapimg" src="https://maps.googleapis.com/maps/api/staticmap?center={{lat}},{{lng}}&zoom=15&size=320x170&markers=color:green%7Clabel:P%7C{{lat}},{{lng}}&key=AIzaSyAtK7GZx9gsxDvrFJjhsjGMgihBdFwH_P8" alt="{{address}} map" style="border-radius: 5px;">
+            <figcaption> view on map</figcaption>
             </figure>
             {{/latlng}}
         </div>
 
         <div class="det" style="padding-left: 50px">
-            <h2>{{address}}</h2><br>
+            <h2 >{{address}}</h2><br>
             <h3 class="city">{{city}}, ON, Toronto</h3>
             <p class="service">
                 Services:
