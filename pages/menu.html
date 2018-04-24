@@ -8,11 +8,13 @@
     <link rel="icon" type="image/png" href="../images/favicon.png"/>
     <!--Main css file for all website -->
     <link rel="stylesheet" href="../css/base_layout.css" type="text/css">
+    <link rel="stylesheet" href="../css/menu.css" type="text/css">
     <!-- General fonts to website-->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- Generic JS file to the website -->
     <script src="../js/master.js" type="text/javascript"></script>
+    <script src="../js/menu.js" type="text/javascript"></script>
     <!--specific css for the page goes here -->
     <!--link rel="stylesheet" href="../css/name_page.css" type="text/css"-->
 </head>
@@ -54,31 +56,109 @@
             <h3>Pizzeria Menu</h3>
         </div>
         <div class="content all-columns">
-            Content goes here - All columns merged
-        </div>
-        <div class="content two-columns-left">
-            Content goes here - Two columns merged from the left to the center
-        </div>
-        <div class="content two-columns-right">
-            Content goes here - Two columns merged from the center to the right
-        </div>
-        <div class="content">
-            Content goes here - Regular content column
-        </div>
-        <div class="content">
-            Content goes here - Regular content column
-        </div>
-        <div class="content">
-            Content goes here - Regular content column
-        </div>
-        <div class="content">
-            TEST
-        </div>
-        <div class="content all-columns">
-            TEST 2
+            <div class="tab">
+                <button class="tablinks" onclick="openMenu(event, 'Types')">Pizza Types</button>
+                <button class="tablinks" onclick="openMenu(event, 'Toppings')">Toppings Offered</button>
+                <button class="tablinks" onclick="openMenu(event, 'Cheese')">Cheese Offered</button>
+                <button class="tablinks" onclick="openMenu(event, 'Sides')">Sides</button>
+                <button class="tablinks" onclick="openMenu(event, 'Drinks')">Drinks</button>
+            </div>
+
+            <div id="Types" class="tabcontent">
+                <fieldset>
+                <img class="small-img" src="../images/menu/Classic%20Veggie.jpg" style="float: left">
+                <p style="float: right">A medley of fresh green peppers, onion, tomatoes, mushrooms, and olives!</p>
+                </fieldset>
+                <fieldset>
+                    <img class="small-img" src="../images/menu/Classic%20Deluxe.jpg" style="float: left">
+                    <p style="float: right">A mouth-watering combination of pepperoni, savory Italian sausage, fresh green peppers,
+                        </br>fresh mushrooms, fresh onions and cheese!</p>
+                </fieldset>
+                <fieldset>
+                    <img class="small-img" src="../images/menu/Hawaiian.jpg" style="float: left">
+                    <p style="float: right">Succulent pineapple and slices of ham topped with an extra layer of cheese!</p>
+                </fieldset>
+                <fieldset>
+                    <img class="small-img" src="../images/menu/Super%20Gourmet.jpg" style="float: left">
+                    <p style="float: right">Specifically engineered to be big, thin, and perfectly foldable!</p>
+                </fieldset>
+            </div>
+
+            <div id="Toppings" class="tabcontent">
+                <fieldset>
+                    <img class="small-img" src="../images/menu/Bacon.jpg" style="float: left">
+                    <p style="float: right">Crispy Bacon!</p>
+                </fieldset>
+                <fieldset>
+                    <img class="small-img" src="../images/menu/BlackOlives.jpg" style="float: left">
+                    <p style="float: right">Fresh Black Olives!</p>
+                </fieldset>
+                <fieldset>
+                    <img class="small-img" src="../images/menu/UndriedTomatoes.jpg" style="float: left">
+                    <p style="float: right">Undried Tomatoes!</p>
+                </fieldset>
+                <fieldset>
+                    <img class="small-img" src="../images/menu/Pepperoni.jpg" style="float: left">
+                    <p style="float: right">Pepperoni!</p>
+                </fieldset>
+            </div>
+
+            <div id="Cheese" class="tabcontent">
+                <fieldset>
+                    <img class="small-img" src="../images/menu/Cheddar.jpg" style="float: left">
+                    <p style="float: right">Cheddar Cheese!</p>
+                </fieldset>
+                <fieldset>
+                    <img class="small-img" src="../images/menu/ExtraMozzarella.jpg" style="float: left">
+                    <p style="float: right">Extra Mozzarella Cheese!</p>
+                </fieldset>
+                <fieldset>
+                    <img class="small-img" src="../images/menu/Goat.jpg" style="float: left">
+                    <p style="float: right">Goat Cheese!</p>
+                </fieldset>
+                <fieldset>
+                    <img class="small-img" src="../images/menu/Parmigiano.jpg" style="float: left">
+                    <p style="float: right">Parmigiano Cheese!</p>
+                </fieldset>
+            </div>
+
+            <div id="Sides" class="tabcontent">
+                <fieldset>
+                    <img class="small-img" src="../images/menu/ChickenWings.jpg" style="float: left">
+                    <p style="float: right">Choose between classic or crispy breaded wings. Raised without antibiotics
+                        </br>& sourced from Canadian farms. Includes your choice of sauce!</p>
+                </fieldset>
+                <fieldset>
+                    <img class="small-img" src="../images/menu/GarlicBread.jpeg" style="float: left">
+                    <p style="float: right">Home style thick slices of bread drizzled with garlic butter!</p>
+                </fieldset>
+                <fieldset>
+                    <img class="small-img" src="../images/menu/CaesarSalad.jpg" style="float: left">
+                    <p style="float: right">Fresh crisp romaine lettuce, parmesan cheese, and croutons. Comes with a salad dressing of your choice!</p>
+                </fieldset>
+            </div>
+
+            <div id="Drinks" class="tabcontent">
+                <fieldset>
+                    <img class="small-img" src="../images/menu/Coke.jpg" style="float: left">
+                    <p style="float: right">CocaCola Can!</p>
+                </fieldset>
+                <fieldset>
+                    <img class="small-img" src="../images/menu/Pepsi.jpg" style="float: left">
+                    <p style="float: right">Pepsi Can!</p>
+                </fieldset>
+                <fieldset>
+                    <img class="small-img" src="../images/menu/Gatorade.png" style="float: left">
+                    <p style="float: right">Gatorade Bottle!</p>
+                </fieldset>
+            </div>
         </div>
     </main>
     <!-- The footer section needs to repeat in each website's page -->
-    <footer><div>Pizzeria website footer &reg;</div></footer>
+    <footer>
+        <div>Pizzeria website &reg;</div>
+        <div>ITC-5103-0NA - Web Programming and Design</div>
+        <div>Annonymous Team</div>
+    </footer>
 </body>
 </html>
