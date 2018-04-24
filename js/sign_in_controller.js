@@ -37,6 +37,8 @@ $(document).ready(function(){
     $(MODAL_POPUP_OK_BUTTON).click(function() {
         $(window).attr('location', URL_LOGIN);
     });
+    
+    $('#date_birth').mask('00/00/0000');
 
 });
 
