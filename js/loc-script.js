@@ -17,7 +17,7 @@ $(function () {
 
                 window.sessionStorage.setItem("userLat",position.coords.latitude);
                 window.sessionStorage.setItem("userLng",position.coords.longitude);
-                alert(window.sessionStorage.getItem("userLat"));
+                
             });
         }
 });
