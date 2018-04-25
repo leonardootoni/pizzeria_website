@@ -1,0 +1,13 @@
+#choseitem{
+    margin-left: 550px;
+}
+#det table{
+    margin-left: 410px;
+    background-color: #3e7327;
+    border-collapse: collapse;
+    border-radius: 5px;
+    color: white;
+}
+#det table td,#det table th{
+    padding: 10px 50px;
+}

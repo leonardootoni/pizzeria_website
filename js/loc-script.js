@@ -1,4 +1,5 @@
 var cityval;
+var map;
 
 $(function () {
     var w=$(window).width();
@@ -6,10 +7,6 @@ $(function () {
     $('.dialogBox').css("left",(w/2-200)+"px");
     $('.dialogBox').css("top",(h/2-80)+"px");
     $.getJSON('../data/locationsJson.json',optionFill);
-
-    console.log($('#sele').val());
-
-
 
 });
 
@@ -75,7 +72,7 @@ function mapLoader(latM,lngM,address) {
     var latlng = {
         lat:lngM, lng: latM
     };
-    var  map = new google.maps.Map(mapTarget, {
+        map = new google.maps.Map(mapTarget, {
         center: latlng,
         zoom: 7
     });
@@ -101,7 +98,60 @@ $('#map-container span').click(function () {
     $('#map-container').hide("fast");
 });
 
+var elem;
 $(document).delegate(".getdir","click",function () {
-    alert("The directions service is currently under developement")
+    alert();
+    elem=$(this);
+
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(getpos);
+    }
+    else{
+        alert("sorry");
+    }
 });
+
+var startloc,endloc;
+function getpos(position) {
+    var datanod=elem.parent().siblings(':first-child');
+    var directionService,directionDisplay;
+
+    var userlat=position.coords.latitude;
+    var userlng=position.coords.longitude;
+    var destlat=datanod.data("lat");
+    var destlng=datanod.data("lng");
+     startloc=userlat+","+userlng;
+     endloc=destlat+","+destlng;
+    getdirection(startloc,endloc)
+
+
+    function getdirection() {
+
+        directionsService = new google.maps.DirectionsService();
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        var centerl = new google.maps.LatLng(userlat,userlng);
+        var mapOptions = {
+            zoom:5,
+            center: centerl
+        };
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        console.log(userlat);
+        directionsDisplay.setMap(map);
+        //directionsDisplay.setPanel(document.getElementById('directions'));
+        $('#map-container').show();
+    }
+    function routecal() {
+        var request={origin:startloc,
+            destination:endloc,
+            travelMode:'DRIVING'
+        };
+        directionService.route(request,function (response,status) {
+            if(status=='OK'){
+                directionDisplay.setDirections(response);
+            }
+        });
+    }
+
+}
+
 

@@ -13,70 +13,60 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- Generic JS file to the website -->
     <script src="../js/master.js" type="text/javascript"></script>
+    <script src="../js/external/jquery/asd.js" type="text/javascript"></script>
     <!--specific css for the page goes here -->
-    <!--link rel="stylesheet" href="../css/name_page.css" type="text/css"-->
+    <link rel="stylesheet" href="../css/nutritions.css" type="text/css">
 </head>
 <body>
-    <!-- the header and nav sections needs to repeat in each website's page -->
-    <header>
-        <div class="centre-content">
-            <a href="../index.html">
-                <img src="../images/logo.png" alt="Site's logotype" height="120" width="120">
-            </a>
-        </div>
-        <div class="centre-content header-text">
-            <h1>Pizzeria website</h1></div>
-        <div class="centre-content">
-            <img src="../images/italy-flag.png" alt="Italy Flag" height="120" width="120">
+<!-- the header and nav sections needs to repeat in each website's page -->
+<header>
+    <div class="centre-content">
+        <a href="../index.html">
+            <img src="../images/logo.png" alt="Site's logotype" height="120" width="120">
+        </a>
+    </div>
+    <div class="centre-content header-text">
+        <h1>Pizzeria website</h1></div>
+    <div class="centre-content">
+        <img src="../images/italy-flag.png" alt="Italy Flag" height="120" width="120">
 
-            <a id="lnk-cart" href="/pages/checkout.html">
-                <img id="shopping-cart" src="some_image.png" alt="Shopping Cart" width="30" height="30">
-            </a>
-        </div>
-    </header>
-    <nav>
-        <ul class="main-menu">
-            <li tabindex="1"><a href="#" class="menu-button">Menu</a></li>
-            <li tabindex="2"><a href="#" class="menu-button">Promo</a></li>
-            <li tabindex="3"><a href="#" class="menu-button">Mount your Pizza</a></li>
-            <li tabindex="4"><a href="#" class="menu-button">Order Track</a></li>
-            <li tabindex="5"><a href="#" class="menu-button">Nutritional Guide</a></li>
-            <li tabindex="6"><a href="#" class="menu-button">Email Offers</a></li>
-            <li tabindex="7"><a href="#" class="menu-button">Locations</a></li>
-            <li tabindex="8"><a href="#" class="menu-button">Careers</a></li>
-            <li tabindex="9"><a href="#" class="menu-button">Services</a></li>
-            <li tabindex="10"><a href="#" class="menu-button">About Us</a></li>
-            <li tabindex="11"><a href="#" class="menu-button">Contact Us</a></li>
-        </ul>
-    </nav>
-    <main>
-        <div class="content title-page">
-            Put here a page's title
-        </div>
-        <div class="content all-columns">
-            Content goes here - All columns merged
-        </div>
-        <div class="content two-columns-left">
-            Content goes here - Two columns merged from left
-        </div>
-        <div class="content two-columns-right">
-            Content goes here - Two columns merged from right
-        </div>
-        <div class="content">
-            Content goes here - Regular content column
-        </div>
-        <div class="content">
-            Content goes here - Regular content column
-        </div>
-        <div class="content">
-            Content goes here - Regular content column
-        </div>
-    </main>
-    <!-- The footer section needs to repeat in each website's page -->
-    <footer>
-        <div>Pizzeria website &reg;</div>
-        <div>ITC-5103-0NA - Web Programming and Design</div>
-        <div>Annonymous Team</div>
-    </footer>
+        <a id="lnk-cart" href="/pages/checkout.html">
+            <img id="shopping-cart" src="some_image.png" alt="Shopping Cart" width="30" height="30">
+        </a>
+    </div>
+</header>
+<nav>
+    <ul class="main-menu">
+        <li tabindex="1"><a href="#" class="menu-button">Menu</a></li>
+        <li tabindex="2"><a href="#" class="menu-button">Promo</a></li>
+        <li tabindex="3"><a href="#" class="menu-button">Mount your Pizza</a></li>
+        <li tabindex="4"><a href="#" class="menu-button">Order Track</a></li>
+        <li tabindex="5"><a href="#" class="menu-button">Nutritional Guide</a></li>
+        <li tabindex="6"><a href="#" class="menu-button">Email Offers</a></li>
+        <li tabindex="7"><a href="#" class="menu-button">Locations</a></li>
+        <li tabindex="8"><a href="#" class="menu-button">Careers</a></li>
+        <li tabindex="9"><a href="#" class="menu-button">Services</a></li>
+        <li tabindex="10"><a href="#" class="menu-button">About Us</a></li>
+        <li tabindex="11"><a href="#" class="menu-button">Contact Us</a></li>
+    </ul>
+</nav>
+<main>
+    <div class="content title-page">
+        Nutritions
+    </div>
+    <div >
+        <select  id="choseitem">
+            <option id="pizza" selected>Pizza</option>
+        </select>
+        <div id="det"></div>
+    </div>
+</main>
+<script src="../js/nutritions.js"></script>
+<!-- The footer section needs to repeat in each website's page -->
+<footer>
+    <div>Pizzeria website &reg;</div>
+    <div>ITC-5103-0NA - Web Programming and Design</div>
+    <div>Annonymous Team</div>
+</footer>
 </body>
 </html>
