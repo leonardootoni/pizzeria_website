@@ -35,23 +35,31 @@
     letter-spacing: 1px;
 }
 
-#map-container,#map-containernav{
+#map-container{
     display:none;
     position:absolute;
     left: 0px;
     top:0px;
     height:100%;
     width: 100%;
-    background-color: rgba(0,0,0,0.82);
+    background-color: rgba(0,0,0,1);
 }
-#map,#mapnav{
+.map-panel{
     position: absolute;
-    width:100%;
+    width:70%;
     height:90%;
     margin-top: 35px;
 
 }
-#map-container>span,#map-containernav>span{
+.mapfull{
+    position: absolute;
+    width:100%;
+    height:100%;
+    margin-top: 35px;
+
+}
+
+#map-container>span{
     float:right;
     padding-right: 10px;
     background: #db0000;
@@ -60,7 +68,7 @@
     z-index: 10;
     font-size: 30px;
 }
-#map-container>span:hover,#map-container>span:hover{
+#map-container>span:hover{
     cursor: pointer;
     color:white;
     background: #a30001;
@@ -105,12 +113,24 @@ main h2{
     background-color: rgba(148, 228, 113, 0.38);
     border-radius: 5px;
 }
-#mapnav{
-    width: 0%;
+
+div#map div{
     float: right;
-    background-color: #ee0001;
 }
-#directions{
-    float:left;
-    background-color: #3b2cff;
+div#directions{
+    display: none;
+    position: absolute;
+    direction: ltr;
+    Z-INDEX: 20;
+    margin-left: 932px;
+    width: 400px;
+    height: 556px;
+    margin-bottom: 600px;
+    top: 35px;
+    background-color: aliceblue;
+    color:black;
+    overflow: scroll;
+}
+table.adp-placemark{
+    background-color: #5cb85c;
 }
