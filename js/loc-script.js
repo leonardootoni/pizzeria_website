@@ -1,6 +1,6 @@
 
 //*locations page code
- var cityval,elem;;
+ var cityval,elem;
 
 $(function () {
 
@@ -12,12 +12,12 @@ $(function () {
 
     //check weather there is location access
     if(navigator.geolocation){
-        //store the position co-ordinates of users location  in cookies.
+        //store the position co-ordinates of users location  in session storage.
         navigator.geolocation.getCurrentPosition(function (position) {
 
-                $.cookie("userLat",position.coords.latitude);
-                $.cookie("userLng",position.coords.longitude);
-
+                window.sessionStorage.setItem("userLat",position.coords.latitude);
+                window.sessionStorage.setItem("userLng",position.coords.longitude);
+                alert(window.sessionStorage.getItem("userLat"));
             });
         }
 });
@@ -171,8 +171,8 @@ function getdirection(destlat,destlng) {
         //create an object of the directions render object of google maps api to display directions.
         var dDisplay = new google.maps.DirectionsRenderer();
 
-        //store value of users latitude and longitude from cookies as an object .
-        var centerl = new google.maps.LatLng(localStorage.getItem("userLt"),localStorage.getItem("userLn"));
+        //store value of users latitude and longitude from sessionstorage as an object .
+        var centerl = new google.maps.LatLng(window.sessionStorage.getItem("userLat"),window.sessionStorage.getItem("userLng"));
         //object containing options for map.
         var mapOptions = {
 
