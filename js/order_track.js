@@ -1,4 +1,5 @@
 
+var orders=[];
 $(document).ready(function () {
     if (typeof(Storage) !== "undefined") {
         main();
@@ -9,22 +10,15 @@ $(document).ready(function () {
 });
 
 function main() {
-    var ordernum=[1111];
 
-    $('#search').on("click",search);
+    $('#search').on("click", function () {
+        var orderNum = $('#textBox').val();
+        if (orderNum){
+
+            $('#textBox').css("border-color", "");
+        }
+        else {
+            $('#textBox').css("border-color", "red");
+        }
+    });
 }
-
-
-function search(){
-    var orderNum=$('#textBox').val();
-    if(orderNum){
-        $('#textBox').css("border-color","");
-
-
-    }
-    else{
-        $('#textBox').css("border-color","red");
-    }
-
-}
-
