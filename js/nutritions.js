@@ -1,6 +1,5 @@
 $(document).ready(function () {
     var value=document.getElementById("choseitem").value;
-    alert(value)
     show(value);
 });
 

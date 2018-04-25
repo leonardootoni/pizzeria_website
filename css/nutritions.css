@@ -17,3 +17,13 @@
 #det{
     border-color: #4C8C42;
 }
+#det table .name{
+    background-color: #fffdf8;
+    color: red;
+}
+label{
+    margin-left: 500px;
+    font-size: large;
+    font-weight: bolder;
+    color:red;
+}
