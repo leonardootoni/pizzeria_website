@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pizzeria</title>
-    <link rel="icon" type="image/png" href="../images/favicon.png"/>
+    <link rel="icon" type="image/png" href="../images/favicon.png" />
     <!--Main css file for all website -->
     <link rel="stylesheet" href="../css/base_layout.css" type="text/css">
     <!-- General fonts to website-->
@@ -17,85 +18,87 @@
     <!--specific css for the page goes here -->
     <link rel="stylesheet" href="../css/locations-style.css" type="text/css">
 </head>
+
 <body>
-<!-- the header and nav sections needs to repeat in each website's page -->
-<header>
-    <div class="centre-content">
-        <a href="../index.html">
-            <img src="../images/logo.png" alt="Site's logotype" height="120" width="120">
-        </a>
-    </div>
-    <div class="centre-content header-text">
-        <h1>Pizzeria website</h1></div>
-    <div class="centre-content">
-        <img src="../images/italy-flag.png" alt="Italy Flag" height="120" width="120">
-
-        <a id="lnk-cart" href="/pages/checkout.html">
-            <img id="shopping-cart" src="some_image.png" alt="Shopping Cart" width="30" height="30">
-        </a>
-    </div>
-</header>
-<nav>
-    <ul class="main-menu">
-        <li tabindex="1"><a href="#" class="menu-button">Menu</a></li>
-        <li tabindex="2"><a href="#" class="menu-button">Promo</a></li>
-        <li tabindex="3"><a href="#" class="menu-button">Mount your Pizza</a></li>
-        <li tabindex="4"><a href="#" class="menu-button">Order Track</a></li>
-        <li tabindex="5"><a href="#" class="menu-button">Nutritional Guide</a></li>
-        <li tabindex="6"><a href="#" class="menu-button">Email Offers</a></li>
-        <li tabindex="7"><a href="#" class="menu-button">Locations</a></li>
-        <li tabindex="8"><a href="#" class="menu-button">Careers</a></li>
-        <li tabindex="9"><a href="#" class="menu-button">Services</a></li>
-        <li tabindex="10"><a href="#" class="menu-button">About Us</a></li>
-        <li tabindex="11"><a href="#" class="menu-button">Contact Us</a></li>
-    </ul>
-</nav>
-<main>
-    <div class="content title-page">
-        Locations
-    </div>
-    <div id="directions">
-
-    </div>
-    <div class="all-columns" id="map-container">
-        <span>&#215;</span>
-        <div class="map-panel" id="map">
-            <span>&#215</span>
+    <!-- the header and nav sections needs to repeat in each website's page -->
+    <header>
+        <div class="centre-content">
+            <a href="../index.html">
+                <img src="../images/logo.png" alt="Site's logotype" height="120" width="120">
+            </a>
         </div>
-        <div id="directions1">
+        <div class="centre-content header-text">
+            <h1>Pizzeria website</h1>
+        </div>
+        <div class="centre-content">
+            <img src="../images/italy-flag.png" alt="Italy Flag" height="120" width="120">
+
+            <a id="lnk-cart" href="/pages/checkout.html">
+                <img id="shopping-cart" src="some_image.png" alt="Shopping Cart" width="30" height="30">
+            </a>
+        </div>
+    </header>
+    <nav>
+        <ul class="main-menu">
+            <li tabindex="1"><a href="#" class="menu-button">Menu</a></li>
+            <li tabindex="2"><a href="#" class="menu-button">Promo</a></li>
+            <li tabindex="3"><a href="#" class="menu-button">Mount your Pizza</a></li>
+            <li tabindex="4"><a href="#" class="menu-button">Order Track</a></li>
+            <li tabindex="5"><a href="#" class="menu-button">Nutritional Guide</a></li>
+            <li tabindex="6"><a href="#" class="menu-button">Email Offers</a></li>
+            <li tabindex="7"><a href="#" class="menu-button">Locations</a></li>
+            <li tabindex="8"><a href="#" class="menu-button">Careers</a></li>
+
+            <li tabindex="10"><a href="#" class="menu-button">About Us</a></li>
+            <li tabindex="11"><a href="#" class="menu-button">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="content title-page">
+            Locations
+        </div>
+        <div id="directions">
 
         </div>
+        <div class="all-columns" id="map-container">
+            <span>&#215;</span>
+            <div class="map-panel" id="map">
+                <span>&#215</span>
+            </div>
+            <div id="directions1">
 
-    </div>
-
-    <div class="all-columns locations-parent">
-
-    </div>
-
-    <div class="dataContainer">
-        <div class="dialogBox">
-
-            <div class="dialogBoxHeader" id="dialogBoxHeader">
-                <span>Choose a city</span>
             </div>
 
-            <div class="dialogBoxInner" id="dialogBoxBody">
+        </div>
 
-                <div id="selectBox">
-                    <select id="sele">
-                        <option value="">Please Choose</option>
-                    </select>
+        <div class="all-columns locations-parent">
+
+        </div>
+
+        <div class="dataContainer">
+            <div class="dialogBox">
+
+                <div class="dialogBoxHeader" id="dialogBoxHeader">
+                    <span>Choose a city</span>
+                </div>
+
+                <div class="dialogBoxInner" id="dialogBoxBody">
+
+                    <div id="selectBox">
+                        <select id="sele">
+                            <option value="">Please Choose</option>
+                        </select>
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
 
-    </div>
+    </main>
 
-</main>
-
-<script id="optionTmplt" type="text/html">
+    <script id="optionTmplt" type="text/html">
 
     {{ #cityname}}
     <option value="{{.}}" class="sel">{{.}}</option>
@@ -103,7 +106,7 @@
 
 </script>
 
-<script id="locTmplt" type="text/html">
+    <script id="locTmplt" type="text/html">
     {{#cities}}
     <table class="spec-loc">
         <tr>
@@ -139,15 +142,16 @@
 
 </script>
 
-<script src="../js/loc-script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtK7GZx9gsxDvrFJjhsjGMgihBdFwH_P8"></script>
+    <script src="../js/loc-script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtK7GZx9gsxDvrFJjhsjGMgihBdFwH_P8"></script>
 
-<!-- The footer section needs to repeat in each website's page -->
-<footer>
-    <div>Pizzeria website &reg;</div>
-    <div>ITC-5103-0NA - Web Programming and Design</div>
-    <div>Annonymous Team</div>
-</footer>
+    <!-- The footer section needs to repeat in each website's page -->
+    <footer>
+        <div>Pizzeria website &reg;</div>
+        <div>ITC-5103-0NA - Web Programming and Design</div>
+        <div>Annonymous Team</div>
+    </footer>
 </body>
+
 </html>

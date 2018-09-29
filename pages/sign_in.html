@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pizzeria</title>
-    <link rel="icon" type="image/png" href="../images/favicon.png"/>
+    <link rel="icon" type="image/png" href="../images/favicon.png" />
     <!--Main css file for all website -->
     <link rel="stylesheet" href="../css/base_layout.css" type="text/css">
     <!-- General fonts to website-->
@@ -33,6 +34,7 @@
     <script src="../js/sign_in_controller.js"></script>
 
 </head>
+
 <body>
     <!-- the header and nav sections needs to repeat in each website's page -->
     <header>
@@ -42,7 +44,8 @@
             </a>
         </div>
         <div class="centre-content header-text">
-            <h1>Pizzeria website</h1></div>
+            <h1>Pizzeria website</h1>
+        </div>
         <div class="centre-content">
             <img src="../images/italy-flag.png" alt="Italy Flag" height="120" width="120">
 
@@ -61,7 +64,7 @@
             <li tabindex="6"><a href="#" class="menu-button">Email Offers</a></li>
             <li tabindex="7"><a href="#" class="menu-button">Locations</a></li>
             <li tabindex="8"><a href="#" class="menu-button">Careers</a></li>
-            <li tabindex="9"><a href="#" class="menu-button">Services</a></li>
+
             <li tabindex="10"><a href="#" class="menu-button">About Us</a></li>
             <li tabindex="11"><a href="#" class="menu-button">Contact Us</a></li>
         </ul>
@@ -80,7 +83,8 @@
                 <span>*</span>
                 <label for="first_name">First Name:</label>
                 <div class="child">
-                    <input type="text" id="first_name" name="first_name" size="50" title="Enter the User First Name." required minlength="1" maxlength="30">
+                    <input type="text" id="first_name" name="first_name" size="50" title="Enter the User First Name."
+                        required minlength="1" maxlength="30">
                 </div>
             </div>
 
@@ -88,40 +92,44 @@
                 <span>*</span>
                 <label for="last_name">Last Name:</label>
                 <div class="child">
-                    <input type="text" id="last_name" name="last_name" size="50" title="Enter The User Last Name." required minlength="1" maxlength="30">
+                    <input type="text" id="last_name" name="last_name" size="50" title="Enter The User Last Name."
+                        required minlength="1" maxlength="30">
                 </div>
             </div>
 
             <div class="form_element">
-               <label>Gender:</label>
-               <div>
-                   <input type="radio" id="gender_male" name="gender_male"  value="" checked><label for="gender_male" title="Male gender" >Male</label>
-                   <input type="radio" id="gender_female" name="gender_male" value=""><label for="gender_female" title="Female gender">Female</label>
-               </div>
-           </div>
+                <label>Gender:</label>
+                <div>
+                    <input type="radio" id="gender_male" name="gender_male" value="" checked><label for="gender_male"
+                        title="Male gender">Male</label>
+                    <input type="radio" id="gender_female" name="gender_male" value=""><label for="gender_female" title="Female gender">Female</label>
+                </div>
+            </div>
 
-           <div class="form_element">
+            <div class="form_element">
                 <span>*</span>
-               <label for="date_birth">Date of Birth:</label>
-               <div class="child">
-                   <input type="text" id="date_birth" name="date_birth"  size="50" title="Inform a valid date of birth after 1900." maxlength="10" placeholder="dd/mm/yyyy"
-                   pattern="^\s*(3[01]|[12][0-9]|0?[1-9])\/(1[012]|0?[1-9])\/((?:19|20)\d{2})\s*$" data-parsley-pattern-message="Date not in dd/mm/yyyy format." required>
-               </div>
-           </div>
+                <label for="date_birth">Date of Birth:</label>
+                <div class="child">
+                    <input type="text" id="date_birth" name="date_birth" size="50" title="Inform a valid date of birth after 1900."
+                        maxlength="10" placeholder="dd/mm/yyyy" pattern="^\s*(3[01]|[12][0-9]|0?[1-9])\/(1[012]|0?[1-9])\/((?:19|20)\d{2})\s*$"
+                        data-parsley-pattern-message="Date not in dd/mm/yyyy format." required>
+                </div>
+            </div>
 
-           <div class="form_element">
+            <div class="form_element">
                 <span>*</span>
                 <label for="address">Address:</label>
                 <div class="child">
-                   <input type="text" id="address" name="address" size="50" title="Enter the main address to receive the purchases." required minlength="1" maxlength="30">
+                    <input type="text" id="address" name="address" size="50" title="Enter the main address to receive the purchases."
+                        required minlength="1" maxlength="30">
                 </div>
-           </div>
+            </div>
 
-           <div class="form_element">
-               <label for="compl">Address Complent:</label>
-               <div class="child">
-                   <input type="text" id="compl" name="compl" size="50" title="Enter the Address complement.">
-              </div>
+            <div class="form_element">
+                <label for="compl">Address Complent:</label>
+                <div class="child">
+                    <input type="text" id="compl" name="compl" size="50" title="Enter the Address complement.">
+                </div>
             </div>
 
             <div class="form_element">
@@ -148,7 +156,8 @@
                 <span>*</span>
                 <label for="city">City:</label>
                 <div class="child">
-                    <input type="text" id="city" name="city" size="50" title="Enter the City where you live." required minlength="1" maxlength="30">
+                    <input type="text" id="city" name="city" size="50" title="Enter the City where you live." required
+                        minlength="1" maxlength="30">
                 </div>
             </div>
 
@@ -156,7 +165,8 @@
                 <span>*</span>
                 <label for="postalCode">Postal Code:</label>
                 <div class="child">
-                    <input type="text" id="postalCode" name="postalCode" size="6" title="Enter your Address Postal Code." required minlength="6" maxlength="6">
+                    <input type="text" id="postalCode" name="postalCode" size="6" title="Enter your Address Postal Code."
+                        required minlength="6" maxlength="6">
                 </div>
             </div>
 
@@ -164,7 +174,8 @@
                 <span>*</span>
                 <label for="email">Email:</label>
                 <div class="child">
-                    <input type="email" id="email" name="email" size="50" title="Inform a default email for contact." required maxlength="50">
+                    <input type="email" id="email" name="email" size="50" title="Inform a default email for contact."
+                        required maxlength="50">
                 </div>
             </div>
 
@@ -172,21 +183,23 @@
                 <span>*</span>
                 <label for="password">Password:</label>
                 <div class="child">
-                   <input type="password" id="password" name="password" size="50" title="Enter a minimum 6 alphanumetic characters password." required minlength="6" maxlength="20">
+                    <input type="password" id="password" name="password" size="50" title="Enter a minimum 6 alphanumetic characters password."
+                        required minlength="6" maxlength="20">
                 </div>
-           </div>
+            </div>
 
-           <div class="form_element">
+            <div class="form_element">
                 <span>*</span>
                 <label for="re_password">Reenter Password:</label>
                 <div class="child">
-                    <input type="password" id="re_password" name="re_password" size="50" title="Reenter a minimum 6 alphanumetic characters password." required minlength="6" maxlength="20"
-                    data-parsley-equalto="#password" data-parsley-equalto-message="Password does not match.">
+                    <input type="password" id="re_password" name="re_password" size="50" title="Reenter a minimum 6 alphanumetic characters password."
+                        required minlength="6" maxlength="20" data-parsley-equalto="#password"
+                        data-parsley-equalto-message="Password does not match.">
                 </div>
-           </div>
+            </div>
 
-           <div class="child-buttons">
-               <input type="button" id="register-button" class="green-button" value="Register user">
+            <div class="child-buttons">
+                <input type="button" id="register-button" class="green-button" value="Register user">
             </div>
         </form>
     </main>
@@ -199,7 +212,8 @@
                 <h2>Registration info.</h2>
             </div>
             <div class="modal-body">
-                <p>You have successfully registered yourself on the Pizzeria Website. Now you will be redirected to the login page.</p>
+                <p>You have successfully registered yourself on the Pizzeria Website. Now you will be redirected to the
+                    login page.</p>
                 <div>
                     <input type="button" id="btn-ok-signin" value="OK" class="modal-popup-button">
                     <br>
@@ -219,4 +233,5 @@
         <div>Annonymous Team</div>
     </footer>
 </body>
+
 </html>

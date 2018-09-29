@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pizzeria</title>
-    <link rel="icon" type="image/png" href="../images/favicon.png"/>
+    <link rel="icon" type="image/png" href="../images/favicon.png" />
     <!--Main css file for all website -->
     <link rel="stylesheet" href="../css/base_layout.css" type="text/css">
     <!-- General fonts to website-->
@@ -17,6 +18,7 @@
     <!--specific css for the page goes here -->
     <!--link rel="stylesheet" href="../css/name_page.css" type="text/css"-->
 </head>
+
 <body>
     <!-- the header and nav sections needs to repeat in each website's page -->
     <header>
@@ -26,7 +28,8 @@
             </a>
         </div>
         <div class="centre-content header-text">
-            <h1>Pizzeria website</h1></div>
+            <h1>Pizzeria website</h1>
+        </div>
         <div class="centre-content">
             <img src="../images/italy-flag.png" alt="Italy Flag" height="120" width="120">
 
@@ -45,7 +48,7 @@
             <li tabindex="6"><a href="#" class="menu-button">Email Offers</a></li>
             <li tabindex="7"><a href="#" class="menu-button">Locations</a></li>
             <li tabindex="8"><a href="#" class="menu-button">Careers</a></li>
-            <li tabindex="9"><a href="#" class="menu-button">Services</a></li>
+
             <li tabindex="10"><a href="#" class="menu-button">About Us</a></li>
             <li tabindex="11"><a href="#" class="menu-button">Contact Us</a></li>
         </ul>
@@ -53,51 +56,53 @@
     <main>
 
         <div class="content title-page">
-             Contact Us!
+            Contact Us!
         </div>
         <div class="content all-columns">
-        <span> Any questions or concerns? Please feel free to send us a message or have us call!</span>
-        <form>
-        <fieldset>
-        <label> Name: <input type="text" id="namespace" name="name" /> <br/> <br/> </label>
-        Contact Option: <select name="contact" id="contact">
-                          <option selected>Email</option>
-                          <option>Phone</option>
-                        </select><br /> <br/>
-        <label> Email/Phone Number <input type="text" id="contactoption" name="contactoption" /> <br/> <br/> </label>
-      <label>  Reason for Contact <textarea id="reason" name="reason" rows="6" cols="50"></textarea> <br/> <br/> <br/> </label>
-        <input type="button"  name="Submit" value="Submit" onclick="validate()" />
-      </fieldset>
-        </form>
-        <script>
- function validate(){
-       var namespace = document.getElementById('namespace').value;
+            <span> Any questions or concerns? Please feel free to send us a message or have us call!</span>
+            <form>
+                <fieldset>
+                    <label> Name: <input type="text" id="namespace" name="name" /> <br /> <br /> </label>
+                    Contact Option: <select name="contact" id="contact">
+                        <option selected>Email</option>
+                        <option>Phone</option>
+                    </select><br /> <br />
+                    <label> Email/Phone Number <input type="text" id="contactoption" name="contactoption" /> <br /> <br />
+                    </label>
+                    <label> Reason for Contact <textarea id="reason" name="reason" rows="6" cols="50"></textarea> <br />
+                        <br /> <br /> </label>
+                    <input type="button" name="Submit" value="Submit" onclick="validate()" />
+                </fieldset>
+            </form>
+            <script>
+                function validate() {
+                    var namespace = document.getElementById('namespace').value;
 
-       var contactoption = document.getElementById('contactoption').value;
-        console.log(contactoption);
+                    var contactoption = document.getElementById('contactoption').value;
+                    console.log(contactoption);
 
-        var pattern = /^[a-zA-Z]{2,30}$/ ;
-        if(namespace === ""){
-            document.getElementById('namespace').innerHTML = "Please enter a name";
-        } else {
-            document.getElementById('namespace').innerHTML = "fname is valid";
-        }
+                    var pattern = /^[a-zA-Z]{2,30}$/;
+                    if (namespace === "") {
+                        document.getElementById('namespace').innerHTML = "Please enter a name";
+                    } else {
+                        document.getElementById('namespace').innerHTML = "fname is valid";
+                    }
 
-        if(contactoption === ""){
-            document.getElementById('contactoption').innerHTML = "Please enter email/phone";
-        } else {
-            document.getElementById('contactoption').innerHTML = "thank you";
-        }
-        }
-    </script>
+                    if (contactoption === "") {
+                        document.getElementById('contactoption').innerHTML = "Please enter email/phone";
+                    } else {
+                        document.getElementById('contactoption').innerHTML = "thank you";
+                    }
+                }
+            </script>
 
         </div>
         <div class="content all-columns">
             <h2> You can also stop by or give us a call! </h2>
             Pizzeria<br>
-        9050  Martin Grove Road<br>
-        Toronto, Ontario,M9L 1B1 <br>
-        <p> 416 -435-1111 </p>
+            9050 Martin Grove Road<br>
+            Toronto, Ontario,M9L 1B1 <br>
+            <p> 416 -435-1111 </p>
         </div>
 
     </main>
@@ -108,4 +113,5 @@
         <div>Annonymous Team</div>
     </footer>
 </body>
+
 </html>
