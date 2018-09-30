@@ -35,11 +35,12 @@ const ADD_TO_ORDER_BUTTON = "#add-order-button";
 const BUY_MORE_BUTTON = "#btn-buy-more";
 const PROCEED_CHECKOUT_BUTTON = "#btn-proceed-checkout";
 
-//pages to redirectToPage
-const URL_BUY_MORE_PIZZAS =
-  window.location.protocol + "//" + window.location.host + "/pages/mount_your_pizza.html";
+//pages to redirectToPage 
+const URL_BUY_MORE_PIZZAS = window.location.href;
+//window.location.protocol + "//" + window.location.host + "mount_your_pizza.html";
 const URL_CHECKOUT =
-  window.location.protocol + "//" + window.location.host + "/pages/checkout.html";
+  URL_BUY_MORE_PIZZAS.substring(0, URL_BUY_MORE_PIZZAS.lastIndexOf("/")) + "/checkout.html";
+//window.location.protocol + "//" + window.location.host + "pages/checkout.html";
 
 //templates selectors
 const TEMPLATE_PIZZA_SIZE_SELECTOR = "#pizza-size-elements";

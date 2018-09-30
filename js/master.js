@@ -62,8 +62,7 @@ function controlShoppingCartExhibition() {
   if (cart != null) {
     let elements = cart.length > 9 ? 9 : cart.length;
     let pathImage = "";
-
-    if (window.location.href.indexOf(HOME_PAGE) == -1) {
+    if (window.location.href.includes("/pages/")) {
       pathImage += "../";
     }
 
